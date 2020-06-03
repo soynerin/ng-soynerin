@@ -1,0 +1,186 @@
+@import "variable";
+@import "mixin";
+
+/*-------------------------
+           MEDIA
+-------------------------*/
+@media (min-width: 1200px) {
+    .pilling-page .container {
+        max-width: 1050px;
+    }
+}
+@media (max-width: 1199px){
+    .section {
+        padding-right: 6rem;
+        padding-left: 6rem;
+    }
+
+    .hero-01 .hero-slide {
+        background-size: auto 100%;
+    }
+
+    .hero-01 .hero-slide.zoom {
+        background-size: auto 200%;
+    }
+    .about .personal-info span {
+        display: block;
+    }
+    .blog-content .list-inline-item {
+        margin-right: 0
+    }
+    .blog-image::before {
+        height: 24%;
+    }
+    .color-scheme.hide{
+        right: -50px;
+    }
+	.modal-dialog {
+		max-width: 100%;
+    }
+    .testimonial .owl-item.active{
+        margin-right: 7.5rem !important;
+    }
+    .testimonial .owl-carousel .owl-stage-outer{
+        height: auto;
+        max-height: 320px;
+    }
+    .testimonial .owl-stage{
+        height: auto;
+        max-height: 320px;
+    }
+    .testimonial .owl-dots{
+        margin-top: 0 !important;
+    }
+    .testimonial .display-table, .display-content {
+        display: block;
+    }
+}
+@media (min-width: 992px)and (max-width: 1080px){
+    .testimonial .owl-dots{
+        margin-right: 6rem;
+    }
+}
+@media (max-width: 991px){
+    header {
+        background-color: map-get($map: $bg-colors, $key: secondary-bg-light);
+        -webkit-box-shadow: 0 1px 3px 0 #eee;
+        box-shadow: 0 1px 3px 0 #eee;
+    }
+    .overlay-menu-toggler, .logo{
+        color: map-get($map: $colors, $key: secondary-dark) !important;
+    }
+    .arshia-dark header{
+        background-color: map-get($map: $bg-colors, $key: bg-dark);
+        box-shadow: 0 1px 3px 0 #010101;
+    }
+    .hero-03{
+        text-align: center;
+        overflow: hidden;
+    }
+    .hero-03 p{
+        
+        margin: auto;
+    }
+    .hero-03 .hero-content{
+        text-align: center;
+        margin-top: 32px;
+    }
+    .title-content h2 {
+        font-size: 36px;
+    }
+    .title-content {
+        top: -58px;
+    }
+    .contact-info-text{
+        margin-top: 48px;
+    }
+
+}
+@media (max-width: 767px){
+    .overlay-menu-toggler {
+        right: 0.5rem;
+    }
+    .overlay-menu .overlay-menu-list .overlay-nav a, .overlay-menu .overlay-menu-list .overlay-nav span, .overlay-menu .overlay-menu-list .overlay-nav p {
+        font-size: 12px;
+        padding: 0.5rem;
+    }
+    #pp-nav, .social-box {
+        display: none;
+    }
+    .section {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 2rem;
+    }
+    .color-scheme {
+        right: 15px;
+    }
+    .social-box{
+        display: none;
+    }
+}
+
+@media (max-width: 575px){
+    .overlay-nav a, .overlay-nav span, .overlay-nav p {
+        padding: 0.5rem;
+        letter-spacing: 1px;
+    }
+    .overlay-menu .overlay-menu-list .overlay-nav > ul {
+        width: 100%;
+        float: none;
+        margin-bottom: 2rem;
+    }
+    .hero-01 .scroll-down span, .hero-02 .scroll-down {
+        bottom: 64px;
+    }
+    .title-wrapper {
+        font-size: 48px;
+    }
+    .title-content {
+        top: -44px
+    }
+    .title-content h2 {
+        font-size: 32px;
+    }
+    .display-table, .display-content {
+        display: block;
+    }
+    .testimonial .display-table, .testimonial .display-content {
+        display: block;
+    }
+    .testimonial .testimonial-item {
+        padding: 16px;
+    }
+    .testimonial .owl-carousel .owl-stage-outer{
+        height: auto;
+        max-height: 335px;
+    }
+    .testimonial .owl-stage{
+        height: auto;
+        max-height: 335px;
+    }
+    .testimonial p{
+        margin: 0 !important;
+    }
+    .testimonial span{
+        margin-top: 5px !important;
+    }
+    .testimonial .owl-carousel .owl-dots {
+        margin-top: 1rem !important;
+    }
+    .testimonial .owl-carousel .owl-item {
+        padding-top: 1rem;
+    }
+    #message.toast {
+        top: 18px;
+        left: inherit;
+        font-size: 12px;
+        padding: 3px 0;
+      }
+}
+@media (max-width: 380px){
+    #message.toast {
+        top: 60px;
+        left: 15px;
+    }
+}

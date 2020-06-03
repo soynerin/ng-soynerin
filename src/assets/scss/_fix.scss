@@ -1,0 +1,344 @@
+@import "variable";
+@import "mixin";
+
+/*-------------------------
+        ColorPallet
+-------------------------*/
+.color-switcher{
+    .color-pallet {
+        @include color-button;
+        left: 25px;
+        width: 189px;
+        border-radius:0 16px 16px; 
+        opacity: 0;
+        visibility: hidden;
+    }
+    .color-pallet.show{
+        opacity: 1;
+        visibility: visible;
+    }
+    .pallet-button {
+        @include color-button;
+        display: block;
+        height: 40px;
+        left: 0;
+        width: 40px;
+        border-radius:0 16px 16px 0;  
+        a{
+            width: 40px;
+            height: 40px;
+            display: block;
+            text-align: center;
+        }
+        i {
+            color: map-get($map: $colors, $key: secondary-dark);
+            font-size: 20px;
+            line-height: 40px;
+        }
+    }
+    ul.pattern {
+        list-style: none outside none;
+        margin: 0 0 0;
+        overflow: hidden;
+        padding: 0;
+
+        li {
+            float: left;
+        }
+        li a {
+            cursor: pointer;
+            display: block;
+            height: 30px;
+            width: 30px;
+            border-radius:28px 18px 0 21px;
+            transform: rotate(-135deg);
+            margin: 15px  0 15px 25px;
+        }
+        .color1 {
+            background: map-get($map: $color-full, $key: greens);
+        }
+        .color2 {
+            background: map-get($map: $color-full, $key: yellows);
+        }
+        .color3 {
+            background: map-get($map: $color-full, $key: golden);
+        }
+        .color4 {
+            background: map-get($map: $color-full, $key: sky-blue);
+        }
+        .color5 {
+            background: map-get($map: $color-full, $key: blues);
+        }
+        .color6 {
+            background: map-get($map: $color-full, $key: purples);
+        }
+        .color7 {
+            background: map-get($map: $color-full, $key: oranges);
+        }
+        .color8 {
+            background: map-get($map: $color-full, $key: pinks);
+        }
+        .color9 {
+            background: map-get($map: $color-full, $key: reds);
+        }
+    }
+} 
+
+/*-------------------------
+          Fixed
+-------------------------*/
+header {
+    padding: 15px;
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    z-index: 1030;
+    top: 0;
+}
+.logo{
+    color: map-get($map: $colors, $key: dark);
+    font-weight: $font-weight-bolder;
+    font-size: 22px;
+    margin-left: 14px;
+
+    &:hover{
+        color: map-get($map: $colors, $key: dark);
+    }
+}
+.social-box{
+    position: absolute;
+    left: 1.5rem;
+    bottom: 0;
+    width: 1.5rem;
+    z-index: 100;
+}
+.follow-label{
+    padding-right: 5rem;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    color: map-get($map: $colors, $key: secondary-dark);
+    line-height: 1.5rem;
+    height: 1.5rem;
+    white-space: nowrap;
+    transform-origin: 100% 0;
+    text-align: right;
+    transform: rotate(90deg);
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 60px;
+        height: 2px;
+    }
+}
+
+.social{
+    i{
+        display: block;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    a{
+        color: map-get($map: $colors, $key: secondary-dark);
+    }
+} 
+
+.social-icon {
+    a{
+        background-color: map-get($map: $bg-colors, $key: bg-light);
+        transition: all 0.3s ease;
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+        display: inline-block;
+        box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+        border-radius: 4px;
+        text-align: center;
+        color: #5f5f5f;
+
+        &:hover{
+            box-shadow: inset 3px 3px 3px #dadada, inset -3px -3px 3px #fafafa;
+        }
+    }
+    .list-inline-item:not(:last-child) {
+        margin-right: 12px;
+    }
+}
+/*-------------------------
+          PP Nav
+-------------------------*/
+#pp-nav{
+    li{
+        margin: 10px 8px;
+        width: 28px;
+        span{
+            width: 25px;
+            height: 3px;
+            border-radius: 5px;
+            background-color: map-get($map: $colors, $key: secondary-dark);
+            border: none;
+            top: 5px;
+        }
+        .pp-tooltip {
+            font-size: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            transform: translateY(-3px);
+            padding-right: 1rem;
+            color: map-get($map: $colors, $key: secondary-dark);
+        }
+        .active span {
+            transform: translateX(-10px);
+            width: 36px;
+        }
+        .active ~ .pp-tooltip {
+            padding-right: 1.5rem;
+        }
+    }
+    &.right {
+        right: 28px;
+    }
+}
+/*-------------------------
+        PRELOADER
+-------------------------*/
+#overlayer {
+    position:fixed;
+    z-index:9999;
+    background:white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.loader {
+    position: fixed;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    z-index:99999;
+    border: 4px solid map-get($map: $colors, $key: secondary-light);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/*-------------------------
+     OVERLAY MENU
+-------------------------*/
+.overlay-menu {
+    background-color: #222;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 1030;
+    opacity: 0;
+    visibility: hidden;
+}
+.overlay-menu .overlay-menu-list {
+    width: 100%;
+}
+
+.overlay-menu .overlay-menu-list .overlay-nav > ul {
+    width: 50%;
+    float: left;
+}
+
+.overlay-menu .overlay-menu-list .overlay-nav a, .overlay-menu .overlay-menu-list .overlay-nav span, .overlay-menu .overlay-menu-list .overlay-nav p {
+    color: #fafafa;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 0.75rem;
+    display: inline-block;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+.overlay-menu .overlay-menu-list .overlay-nav .contact-info li:first-child span {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+}
+.overlay-menu .overlay-menu-list .overlay-nav .contact-info li span i {
+    font-size: 18px;
+    position: relative;
+    top: 2px;
+}
+.overlay-menu .overlay-menu-list .overlay-nav .contact-info .socails li i {
+    font-size: 20px;
+    font-weight: 400;
+}
+.overlay-menu .overlay-menu-list .list-group-item {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent !important;
+    text-transform: uppercase;
+}
+.overlay-menu.show {
+    opacity: 1;
+    visibility: visible;
+    cursor: url(../img/cursor-white.png), auto;
+}
+.pilling-page .overlay-menu .overlay-menu-list .list-group-item {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent !important;
+    text-transform: uppercase;
+}
+.overlay-menu-toggler {
+    position: absolute;
+    top: 5px;
+    color: map-get($map: $colors, $key: secondary-dark);
+    padding: 10px;
+    right: 24px;
+    z-index: 1029;
+    border-radius: 0 4px 4px 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    opacity: 1;
+    &:hover{
+        color: map-get($map: $colors, $key: secondary-dark);
+    }
+}
+.overlay-menu-toggler.move {
+    opacity: 0;
+}
+/*-------------------------
+       COLOR SCHEME
+-------------------------*/
+.color-scheme {
+    position: fixed;
+    z-index: 999;
+    right: 31px;
+    top: 75px;
+    padding: .5rem .75rem;
+    border-radius: 50%;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.color-scheme:hover {
+    color: #ffffff;
+}
+
+.color-scheme i {
+    position: relative;
+    top: 1px;
+}
+

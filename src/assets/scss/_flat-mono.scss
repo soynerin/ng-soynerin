@@ -1,0 +1,84 @@
+@import "variable";
+@import "mixin";
+
+/*-------------------------
+    Mono Flat Demo Light
+-------------------------*/
+.flat-demo.mono{
+    .section{
+        background-color: map-get($map: $bg-colors, $key: secondary-bg-light) !important;
+    }
+    .pill-button {
+        background-color: map-get($map: $bg-colors, $key: bg-mono-button);
+        border: 1px solid map-get($map: $colors, $key: dark);
+        color: #fafafa !important;
+        &:hover {
+            background-color: map-get($map: $bg-colors, $key: bg-black-dark);
+            border: 1px solid map-get($map: $colors, $key: secondary-dark);
+        }
+    }
+    .timeline-area::before {
+        background-color: map-get($map: $bg-colors, $key: bg-mono-button);
+    }
+    .timeline-icon {
+        border: 1px solid map-get($map: $colors, $key: dark);
+    }
+    .portfolio-filter .pill-button {
+        background-color: transparent;
+        border: none;
+        color: map-get($map: $colors, $key: secondary-dark) !important;
+        &.active, &:hover{
+            color: #fafafa !important;
+            background-color: map-get($map: $bg-colors, $key: bg-black-dark);
+        }
+    }
+    .social-icon a:hover {
+        color: map-get($map: $colors, $key: secondary-dark);
+        box-shadow: none;
+    }
+}
+
+/*-------------------------
+    Mono Flat Demo Dark
+-------------------------*/
+.flat-demo.arshia-dark.mono{
+    .section{
+        background-color: map-get($map: $bg-colors, $key: bg-dark) !important;
+    }
+    .pill-button {
+        background-color: map-get($map: $bg-colors, $key: bg-lighter);
+        border: 1px solid map-get($map: $colors, $key:  light);
+        color: map-get($map: $colors, $key:  dark) !important;
+        &:hover {
+            background-color: map-get($map: $bg-colors, $key: button-hover);
+            border: 1px solid map-get($map: $colors, $key: button-hover);
+        }
+    }
+    .skill-box .fill-skillbar{
+        background-color: map-get($map: $bg-colors, $key: button-hover);
+    }
+    .skill-box .skillbar {
+        background-color: map-get($map: $bg-colors, $key: bg-black-dark);
+    }
+    .timeline-area::before {
+        background-color: map-get($map: $bg-colors, $key: bg-lighter);
+    }
+    .timeline-icon {
+        border: 1px solid map-get($map: $colors, $key: light);
+    }
+    .portfolio-filter .pill-button {
+        background-color: transparent;
+        border: none;
+        color: map-get($map: $colors, $key: button-hover) !important;
+        
+        &.active, &:hover{
+            color: #3c3c3c !important;
+            background-color: map-get($map: $bg-colors, $key: button-hover);
+        }
+    }
+    .social-icon a:hover {
+        color: #acacac;
+        box-shadow: none;
+    }
+}
+

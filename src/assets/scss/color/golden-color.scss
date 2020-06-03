@@ -1,0 +1,103 @@
+@import "colorfull-variable";
+
+
+::selection {
+    background: transparentize($color:  $golden-color, $amount: .70);
+}
+::-moz-selection {
+    background: transparentize($color:  $golden-color, $amount: .70);
+}
+.pill-button{
+    color: $golden-color;
+    &:hover, &.active{
+        color: $golden-color;
+    }
+}
+.overlay-menu a:hover {
+    color: $golden-color !important;
+}
+
+.overlay-menu a.active {
+    color: $golden-color !important;
+}
+
+.bg-base-color{
+    background-color: $golden-color !important;
+}
+.base-color{
+    color: $golden-color !important;
+}
+.follow-label::before{
+    background-color: $golden-color;
+}
+.social a:hover{
+    color: $golden-color !important;
+}
+.social-icon a:hover{
+    color: $golden-color;
+}
+#pp-nav li:hover span{
+    background-color: $golden-color !important;
+}
+#pp-nav li .active span{
+    background-color: $golden-color !important;
+}
+.border-style{
+    background-color: $golden-color;
+}
+
+.timeline-icon{
+    border: 1px solid $golden-color;
+    background-color: $golden-color;
+}
+.timeline-year{
+    color: $golden-color;
+}
+.timeline-item:before{
+    border: 1px solid $golden-color;
+}
+.skill-box .fill-skillbar {
+    background-color: $golden-color;
+}
+.portfolio .portfolio-filter li a {
+    color: $golden-color;
+}
+
+.testimonial .owl-dot.active span {
+    background-color: $golden-color;
+}
+.blog-link a:hover{
+    color:$golden-color-hover !important;
+}
+.portfolio .portfolio-item-content:before {
+    background-color: transparentize($color: $golden-color, $amount: 0.1);
+}
+.portfolio .portfolio-icon button i, .portfolio .portfolio-icon a i{
+    color: $golden-color;
+}
+.testimonial .owl-carousel .owl-dot.active span{
+    background-color: $golden-color;
+}
+.contact .form-item .form-control {
+    color: $golden-color;
+}
+.loader {
+    border-top: 4px solid $golden-color !important;
+}
+
+.flat-demo .button-border, .arshia-dark.flat-demo .button-border {
+    background-color: $golden-color;
+}
+.flat-demo .pill-button:hover, .flat-demo .pill-button.active {
+    background-color: $golden-color-hover;
+
+}
+
+.arshia-dark{
+    .social-icon a:hover, .social a:hover{
+        color: $golden-color !important;
+    }
+    #pp-nav li .active span {
+        background-color: $golden-color !important;
+    }
+}

@@ -1,0 +1,104 @@
+@import "colorfull-variable";
+
+
+::selection {
+    background: transparentize($color:  $yellow-color, $amount: .70);
+}
+::-moz-selection {
+    background: transparentize($color:  $yellow-color, $amount: .70);
+}
+.pill-button{
+    color: $yellow-color;
+    &:hover, &.active{
+        color: $yellow-color;
+    }
+}
+.overlay-menu a:hover {
+    color: $yellow-color!important;
+}
+
+.overlay-menu a.active {
+    color: $yellow-color!important;
+}
+
+.bg-base-color{
+    background-color: $yellow-color!important;
+}
+.base-color{
+    color: $yellow-color!important;
+}
+.follow-label::before{
+    background-color: $yellow-color;
+}
+.social a:hover{
+    color: $yellow-color!important;
+}
+.social-icon a:hover{
+    color: $yellow-color;
+}
+#pp-nav li:hover span{
+    background-color: $yellow-color!important;
+}
+#pp-nav li .active span{
+    background-color: $yellow-color!important;
+}
+.border-style{
+    background-color: $yellow-color;
+}
+
+.timeline-icon{
+    border: 1px solid $yellow-color;
+    background-color: $yellow-color;
+}
+.timeline-year{
+    color: $yellow-color;
+}
+.timeline-item:before{
+    border: 1px solid $yellow-color;
+}
+.skill-box .fill-skillbar {
+    background-color: $yellow-color;
+}
+.portfolio .portfolio-filter li a {
+    color: $yellow-color;
+}
+
+.testimonial .owl-dot.active span {
+    background-color: $yellow-color;
+}
+.blog-link a:hover{
+    color:$yellow-color-hover !important;
+}
+.portfolio .portfolio-item-content:before {
+    background-color: transparentize($color: $yellow-color, $amount: 0.1);
+}
+.portfolio .portfolio-icon button i, .portfolio .portfolio-icon a i{
+    color: $yellow-color;
+}
+.testimonial .owl-carousel .owl-dot.active span{
+    background-color: $yellow-color;
+}
+.contact .form-item .form-control {
+    color: $yellow-color;
+}
+.loader {
+    border-top: 4px solid $yellow-color!important;
+}
+
+.flat-demo .button-border, .arshia-dark.flat-demo .button-border {
+    background-color: $yellow-color;
+}
+.flat-demo .pill-button:hover, .flat-demo .pill-button.active {
+    background-color: $yellow-color-hover;
+
+}
+
+.arshia-dark{
+    .social-icon a:hover, .social a:hover{
+        color: $yellow-color!important;
+    }
+    #pp-nav li .active span {
+        background-color: $yellow-color!important;
+    }
+}
+

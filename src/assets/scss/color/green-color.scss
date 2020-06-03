@@ -1,0 +1,103 @@
+@import "colorfull-variable";
+
+
+::selection {
+    background: transparentize($color:  $green-color, $amount: .70);
+}
+::-moz-selection {
+    background: transparentize($color:  $green-color, $amount: .70);
+}
+.pill-button{
+    color: $green-color;
+    &:hover, &.active{
+        color: $green-color;
+    }
+}
+.overlay-menu a:hover {
+    color: $green-color !important;
+}
+
+.overlay-menu a.active {
+    color: $green-color !important;
+}
+
+.bg-base-color{
+    background-color: $green-color !important;
+}
+.base-color{
+    color: $green-color !important;
+}
+.follow-label::before{
+    background-color: $green-color;
+}
+.social a:hover{
+    color: $green-color !important;
+}
+.social-icon a:hover{
+    color: $green-color;
+}
+#pp-nav li:hover span{
+    background-color: $green-color !important;
+}
+#pp-nav li .active span{
+    background-color: $green-color !important;
+}
+.border-style{
+    background-color: $green-color;
+}
+
+.timeline-icon{
+    border: 1px solid $green-color;
+    background-color: $green-color;
+}
+.timeline-year{
+    color: $green-color;
+}
+.timeline-item:before{
+    border: 1px solid $green-color;
+}
+.skill-box .fill-skillbar {
+    background-color: $green-color;
+}
+.portfolio .portfolio-filter li a {
+    color: $green-color;
+}
+
+.testimonial .owl-dot.active span {
+    background-color: $green-color;
+}
+.blog-link a:hover{
+    color:$green-color-hover !important;
+}
+.portfolio .portfolio-item-content:before {
+    background-color: transparentize($color: $green-color, $amount: 0.1);
+}
+.portfolio .portfolio-icon button i, .portfolio .portfolio-icon a i{
+    color: $green-color;
+}
+.testimonial .owl-carousel .owl-dot.active span{
+    background-color: $green-color;
+}
+.contact .form-item .form-control {
+    color: $green-color;
+}
+.loader {
+    border-top: 4px solid $green-color !important;
+}
+
+.flat-demo .button-border, .arshia-dark.flat-demo .button-border {
+    background-color: $green-color;
+}
+.flat-demo .pill-button:hover, .flat-demo .pill-button.active {
+    background-color: $green-color-hover;
+
+}
+
+.arshia-dark{
+    .social-icon a:hover, .social a:hover{
+        color: $green-color !important;
+    }
+    #pp-nav li .active span {
+        background-color: $green-color !important;
+    }
+}

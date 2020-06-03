@@ -1,0 +1,103 @@
+@import "colorfull-variable";
+
+
+::selection {
+    background: transparentize($color:  $sky-blue, $amount: .70);
+}
+::-moz-selection {
+    background: transparentize($color:  $sky-blue, $amount: .70);
+}
+.pill-button{
+    color: $sky-blue;
+    &:hover, &.active{
+        color: $sky-blue;
+    }
+}
+.overlay-menu a:hover {
+    color: $sky-blue !important;
+}
+
+.overlay-menu a.active {
+    color: $sky-blue !important;
+}
+
+.bg-base-color{
+    background-color: $sky-blue !important;
+}
+.base-color{
+    color: $sky-blue !important;
+}
+.follow-label::before{
+    background-color: $sky-blue;
+}
+.social a:hover{
+    color: $sky-blue !important;
+}
+.social-icon a:hover{
+    color: $sky-blue;
+}
+#pp-nav li:hover span{
+    background-color: $sky-blue !important;
+}
+#pp-nav li .active span{
+    background-color: $sky-blue !important;
+}
+.border-style{
+    background-color: $sky-blue;
+}
+
+.timeline-icon{
+    border: 1px solid $sky-blue;
+    background-color: $sky-blue;
+}
+.timeline-year{
+    color: $sky-blue;
+}
+.timeline-item:before{
+    border: 1px solid $sky-blue;
+}
+.skill-box .fill-skillbar {
+    background-color: $sky-blue;
+}
+.portfolio .portfolio-filter li a {
+    color: $sky-blue;
+}
+
+.testimonial .owl-dot.active span {
+    background-color: $sky-blue;
+}
+.blog-link a:hover{
+    color:$sky-blue-hover !important;
+}
+.portfolio .portfolio-item-content:before {
+    background-color: transparentize($color: $sky-blue, $amount: 0.1);
+}
+.portfolio .portfolio-icon button i, .portfolio .portfolio-icon a i{
+    color: $sky-blue;
+}
+.testimonial .owl-carousel .owl-dot.active span{
+    background-color: $sky-blue;
+}
+.contact .form-item .form-control {
+    color: $sky-blue;
+}
+.loader {
+    border-top: 4px solid $sky-blue !important;
+}
+
+.flat-demo .button-border, .arshia-dark.flat-demo .button-border {
+    background-color: $sky-blue;
+}
+.flat-demo .pill-button:hover, .flat-demo .pill-button.active {
+    background-color: $sky-blue-hover;
+
+}
+
+.arshia-dark{
+    .social-icon a:hover, .social a:hover{
+        color: $sky-blue !important;
+    }
+    #pp-nav li .active span {
+        background-color: $sky-blue !important;
+    }
+}

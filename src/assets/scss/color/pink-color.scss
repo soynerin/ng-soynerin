@@ -1,0 +1,103 @@
+@import "colorfull-variable";
+
+
+::selection {
+    background: transparentize($color:  $pink-color, $amount: .70);
+}
+::-moz-selection {
+    background: transparentize($color:  $pink-color, $amount: .70);
+}
+.pill-button{
+    color: $pink-color;
+    &:hover, &.active{
+        color: $pink-color;
+    }
+}
+.overlay-menu a:hover {
+    color: $pink-color !important;
+}
+
+.overlay-menu a.active {
+    color: $pink-color !important;
+}
+
+.bg-base-color{
+    background-color: $pink-color !important;
+}
+.base-color{
+    color: $pink-color !important;
+}
+.follow-label::before{
+    background-color: $pink-color;
+}
+.social a:hover{
+    color: $pink-color !important;
+}
+.social-icon a:hover{
+    color: $pink-color;
+}
+#pp-nav li:hover span{
+    background-color: $pink-color !important;
+}
+#pp-nav li .active span{
+    background-color: $pink-color !important;
+}
+.border-style{
+    background-color: $pink-color;
+}
+
+.timeline-icon{
+    border: 1px solid $pink-color;
+    background-color: $pink-color;
+}
+.timeline-year{
+    color: $pink-color;
+}
+.timeline-item:before{
+    border: 1px solid $pink-color;
+}
+.skill-box .fill-skillbar {
+    background-color: $pink-color;
+}
+.portfolio .portfolio-filter li a {
+    color: $pink-color;
+}
+
+.testimonial .owl-dot.active span {
+    background-color: $pink-color;
+}
+.blog-link a:hover{
+    color:$pink-color-hover!important;
+}
+.portfolio .portfolio-item-content:before {
+    background-color: transparentize($color: $pink-color, $amount: 0.1);
+}
+.portfolio .portfolio-icon button i, .portfolio .portfolio-icon a i{
+    color: $pink-color;
+}
+.testimonial .owl-carousel .owl-dot.active span{
+    background-color: $pink-color;
+}
+.contact .form-item .form-control {
+    color: $pink-color;
+}
+.loader {
+    border-top: 4px solid $pink-color !important;
+}
+
+.flat-demo .button-border, .arshia-dark.flat-demo .button-border {
+    background-color: $pink-color;
+}
+.flat-demo .pill-button:hover, .flat-demo .pill-button.active {
+    background-color: $pink-color-hover;
+
+}
+
+.arshia-dark{
+    .social-icon a:hover, .social a:hover{
+        color: $pink-color !important;
+    }
+    #pp-nav li .active span {
+        background-color: $pink-color !important;
+    }
+}
