@@ -135,12 +135,12 @@
                             <!-- Item-01 -->
                             <div class="col-6 col-lg-3 my-3 count-item">
                                 <div class="count-icon">
-                                    <i class="lni-download base-color"></i>
+                                    <i class="lni lni-dashboard base-color"></i>
                                 </div>
                                 <div class="my-3">
-                                    <span class="timer count-number" data-from="0" data-to="0" data-speed="5000">0</span>
+                                    <span class="timer count-number" [CountTo]="visitas.countTo" [from]="visitas.from" [duration]="visitas.duration"></span>                                    
                                 </div>
-                                <p class="mb-0">Files Download</p>
+                                <p class="mb-0">Visitas</p>
                             </div>
                             <!-- Item-02 -->
                             <div class="col-6 col-lg-3 my-3 count-item">
@@ -148,19 +148,19 @@
                                     <i class="lni-pencil-alt base-color"></i>
                                 </div>
                                 <div class="my-3">
-                                    <span class="timer count-number" data-from="0" data-to="2" data-speed="5000">0</span>
+                                    <span class="timer count-number" [CountTo]="proyectosTerminados.countTo" [from]="proyectosTerminados.from" [duration]="proyectosTerminados.duration"></span>                                    
                                 </div>
                                 <p class="mb-0">Proyectos Terminados</p>
                             </div>
                             <!-- Item-03 -->
                             <div class="col-6 col-lg-3 my-3 count-item">
                                 <div class="count-icon">
-                                    <i class="lni-medall  base-color"></i>
+                                    <i class="lni lni-coffee-cup base-color"></i>
                                 </div>
                                 <div class="my-3">
-                                    <span class="timer count-number" data-from="0" data-to="0" data-speed="5000">0</span>
+                                    <span class="timer count-number" [CountTo]="tazasDeCafe.countTo" [from]="tazasDeCafe.from" [duration]="tazasDeCafe.duration"></span>
                                 </div>
-                                <p class="mb-0">Get Award</p>
+                                <p class="mb-0">Tazas de Café</p>
                             </div>
                             <!-- Item-04 -->
                             <div class="col-6 col-lg-3 my-3 count-item">
@@ -168,9 +168,9 @@
                                     <i class="lni-emoji-smile base-color"></i>
                                 </div>
                                 <div class="my-3">
-                                    <span class="timer count-number" data-from="0" data-to="0" data-speed="5000">0</span>
+                                    <span class="timer count-number" [CountTo]="clientesFelices.countTo" [from]="clientesFelices.from" [duration]="clientesFelices.duration"></span>
                                 </div>
-                                <p class="mb-0">Happy Client</p>
+                                <p class="mb-0">Clientes Felices</p>
                             </div>
                         </div>
                     </div>

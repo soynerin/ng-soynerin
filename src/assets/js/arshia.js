@@ -25,7 +25,6 @@ $(document).ready(function () {
     clientCarousel();
     typedJS();
     skills();
-    countup();
     portfolioPopup();
     validateEmail();
     sendEmail();
@@ -303,17 +302,6 @@ function skills() {
             width: $(this).attr('data-percent')
         }, 6000);
     });
-}
-
-/*-------------------------
-            Count up
-  -------------------------*/
-function countup() {
-
-    "use strict";
-
-    $('.timer').countTo();
-    $('.count-number').removeClass('timer');
 }
 
 /*-------------------------
