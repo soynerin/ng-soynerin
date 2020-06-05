@@ -145,15 +145,47 @@ function pagePilling(){
 function colorScheme(){
 
     "use strict";
+    
+    moment().format();
 
-    var $darkLogo = $('.dark-logo');
+    const greetingTIme = getGreetingTime(moment());        
+    let $darkLogo = $('.dark-logo');
+
+    if (greetingTIme == 'evening') {       
+        $("body").toggleClass('arshia-dark');
+        // $('.section').toggleClass('dark-bg');
+        $('.color-scheme').removeClass('d-none').addClass('d-inline-block');
+        $(this).removeClass('d-inline-block').addClass('d-none');         
+    } 
+
     $('.color-scheme').on("click",function() {
         $("body").toggleClass('arshia-dark');
         // $('.section').toggleClass('dark-bg');
         $('.color-scheme').removeClass('d-none').addClass('d-inline-block');
         $(this).removeClass('d-inline-block').addClass('d-none');
-    });
+    });    
 }
+
+function getGreetingTime(m) {
+    let g = null;
+
+    if(!m || !m.isValid()) { return; }
+
+    const split_afternoon = 12;
+    const split_evening = 17;
+    const currentHour = parseFloat(m.format('HH'));
+
+    if(currentHour >= split_afternoon && currentHour <= split_evening) {
+      g = 'afternoon';
+    } else if(currentHour >= split_evening) {
+      g = 'evening';
+    } else {
+      g = 'morning';
+    }
+
+    return g;
+  }
+
 // -------------------------------------------------------------
 //   Color Panel
 // -------------------------------------------------------------
