@@ -1,18 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import * as moment from 'moment';
+import countapi from 'countapi-js';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  visitas: any;
+  visitas: any = {
+    countTo: 0,
+    from: 0,
+    duration: 3
+  };
   tazasDeCafe: any;
   proyectosTerminados: any;
   clientesFelices: any;
-
 
   constructor() {
     this.contadorVisitas();
@@ -21,12 +26,24 @@ export class AppComponent {
     this.contadorClientesFelices();
   }
 
+  ngOnInit(): void {
+
+    if (environment.production) {
+      countapi.update('soynerin.github.io/', 'counter', 1).then((result: any) => { });
+    }
+  }
+
   contadorVisitas() {
-    this.visitas = {
-      countTo: 100,
-      from: 0,
-      duration: 5
-    };
+
+    countapi.get('soynerin.github.io', 'counter').then((result: any) => {
+
+      this.visitas = {
+        countTo: result.value,
+        from: 0,
+        duration: 3
+      };
+    });
+
   }
 
   contadorTazasCafe() {
