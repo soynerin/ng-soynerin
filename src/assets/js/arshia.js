@@ -1,17 +1,17 @@
 /*-----------------------------------------------------------
-* Template Name    : arshia | Bootstrap 4 personal, portfolio and resume
-* Author           : Retrinagroup
-* Version          : 1.0.0
-* Created          : March 2020
-* File Description : Main js file of the template
-*------------------------------------------------------------
-*/
+ * Template Name    : arshia | Bootstrap 4 personal, portfolio and resume
+ * Author           : Retrinagroup
+ * Version          : 1.0.0
+ * Created          : March 2020
+ * File Description : Main js file of the template
+ *------------------------------------------------------------
+ */
 
 // repeated variables
 var $window = $(window);
 var $root = $('html, body');
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     "use strict";
 
@@ -25,6 +25,7 @@ $(document).ready(function () {
     clientCarousel();
     typedJS();
     skills();
+    countup();
     portfolioPopup();
     validateEmail();
     sendEmail();
@@ -41,9 +42,9 @@ $window.on("load", (function() {
 }));
 
 
-$(".to-contact").on('click', function(){
+$(".to-contact").on('click', function() {
     $("section.active").removeClass("active");
-    var $id=$(this).attr('href');
+    var $id = $(this).attr('href');
     $('#main').children($id).addClass('active');
 })
 
@@ -54,14 +55,14 @@ $(".to-contact").on('click', function(){
 /*-------------------------
        Page Pilling
 -------------------------*/
-function pagePilling(){
+function pagePilling() {
 
     "use strict";
-    
+
     var ids = [];
     var tooltips = [];
     var colors = [];
-    $('.section').each(function () {
+    $('.section').each(function() {
         ids.push(this.id);
         tooltips.push($(this).data("navigation-tooltip"));
         colors.push($(this).data("navigation-color"));
@@ -88,52 +89,47 @@ function pagePilling(){
         sectionSelector: '.section',
         animateAnchor: true,
         //events
-        onLeave: function(index, nextIndex, direction){
-            if(nextIndex==1) {
+        onLeave: function(index, nextIndex, direction) {
+            if (nextIndex == 1) {
                 $(".special-section").css('color', '#fff');
-                } 
-                else{
-                    $(".special-section").css('color', '#3c3c3c');
-                }
-
-            if(nextIndex==1 &&  $('.section.hero').hasClass("speacial-hero")) {
-                $("#pp-nav li span").css('backgroundColor', '#fff');
-                } 
-                else{
-                    $("#pp-nav li span").css('backgroundColor', '#3c3c3c');
-                }
-        
-            if(nextIndex==1 &&  $('.section.hero').hasClass("speacial-hero")) {
-                $("#pp-nav li .pp-tooltip").css('color', '#fff');
-                } 
-                else{
-                    $("#pp-nav li .pp-tooltip").css('color', '#3c3c3c');
-                }
-                
-        },
-		afterLoad: function(anchorLink, index){},
-		afterRender: function(index){
-            if(index>1) {     
+            } else {
                 $(".special-section").css('color', '#3c3c3c');
-                    } else{
-                        $(".special-section").css('color', '#fff');
-                    }
+            }
 
-            if( index>1 && $('.section.hero').hasClass("speacial-hero")) {
+            if (nextIndex == 1 && $('.section.hero').hasClass("speacial-hero")) {
+                $("#pp-nav li span").css('backgroundColor', '#fff');
+            } else {
                 $("#pp-nav li span").css('backgroundColor', '#3c3c3c');
-                } 
-                else if ($('.section.hero').hasClass("speacial-hero")){
-                    $("#pp-nav li span").css('backgroundColor', '#fff');
-                }
+            }
 
-            if( index>1 && $('.section.hero').hasClass("speacial-hero")) {
+            if (nextIndex == 1 && $('.section.hero').hasClass("speacial-hero")) {
+                $("#pp-nav li .pp-tooltip").css('color', '#fff');
+            } else {
                 $("#pp-nav li .pp-tooltip").css('color', '#3c3c3c');
-                } 
-                else if ($('.section.hero').hasClass("speacial-hero")){
-                    $("#pp-nav li .pp-tooltip").css('color', '#fff');
-                }
+            }
 
-            
+        },
+        afterLoad: function(anchorLink, index) {},
+        afterRender: function(index) {
+            if (index > 1) {
+                $(".special-section").css('color', '#3c3c3c');
+            } else {
+                $(".special-section").css('color', '#fff');
+            }
+
+            if (index > 1 && $('.section.hero').hasClass("speacial-hero")) {
+                $("#pp-nav li span").css('backgroundColor', '#3c3c3c');
+            } else if ($('.section.hero').hasClass("speacial-hero")) {
+                $("#pp-nav li span").css('backgroundColor', '#fff');
+            }
+
+            if (index > 1 && $('.section.hero').hasClass("speacial-hero")) {
+                $("#pp-nav li .pp-tooltip").css('color', '#3c3c3c');
+            } else if ($('.section.hero').hasClass("speacial-hero")) {
+                $("#pp-nav li .pp-tooltip").css('color', '#fff');
+            }
+
+
         },
     });
 }
@@ -142,50 +138,18 @@ function pagePilling(){
 /*-------------------------
         Color Scheme
 -------------------------*/
-function colorScheme(){
+function colorScheme() {
 
     "use strict";
-    
-    moment().format();
 
-    const greetingTIme = getGreetingTime(moment());        
-    let $darkLogo = $('.dark-logo');
-
-    if (greetingTIme == 'evening') {       
-        $("body").toggleClass('arshia-dark');
-        // $('.section').toggleClass('dark-bg');
-        $('.color-scheme').removeClass('d-none').addClass('d-inline-block');
-        $(this).removeClass('d-inline-block').addClass('d-none');         
-    } 
-
-    $('.color-scheme').on("click",function() {
+    var $darkLogo = $('.dark-logo');
+    $('.color-scheme').on("click", function() {
         $("body").toggleClass('arshia-dark');
         // $('.section').toggleClass('dark-bg');
         $('.color-scheme').removeClass('d-none').addClass('d-inline-block');
         $(this).removeClass('d-inline-block').addClass('d-none');
-    });    
+    });
 }
-
-function getGreetingTime(m) {
-    let g = null;
-
-    if(!m || !m.isValid()) { return; }
-
-    const split_afternoon = 12;
-    const split_evening = 17;
-    const currentHour = parseFloat(m.format('HH'));
-
-    if(currentHour >= split_afternoon && currentHour <= split_evening) {
-      g = 'afternoon';
-    } else if(currentHour >= split_evening) {
-      g = 'evening';
-    } else {
-      g = 'morning';
-    }
-
-    return g;
-  }
-
 // -------------------------------------------------------------
 //   Color Panel
 // -------------------------------------------------------------
@@ -193,34 +157,34 @@ function ColorPallet() {
 
     "use strict";
 
-    $("ul.pattern .color1").click(function () {
+    $("ul.pattern .color1").click(function() {
         return $("#option-color").attr("href", "assets/css/color/green-color.css")
     });
-    $("ul.pattern .color2").click(function () {
+    $("ul.pattern .color2").click(function() {
         return $("#option-color").attr("href", "assets/css/color/yellow-color.css")
     });
-    $("ul.pattern .color3").click(function () {
+    $("ul.pattern .color3").click(function() {
         return $("#option-color").attr("href", "assets/css/color/golden-color.css")
     });
-    $("ul.pattern .color4").click(function () {
+    $("ul.pattern .color4").click(function() {
         return $("#option-color").attr("href", "assets/css/color/sky-blue-color.css")
     });
-    $("ul.pattern .color5").click(function () {
+    $("ul.pattern .color5").click(function() {
         return $("#option-color").attr("href", "assets/css/color/blue-color.css")
     });
-    $("ul.pattern .color6").click(function () {
+    $("ul.pattern .color6").click(function() {
         return $("#option-color").attr("href", "assets/css/color/purple-color.css")
     });
-    $("ul.pattern .color7").click(function () {
+    $("ul.pattern .color7").click(function() {
         return $("#option-color").attr("href", "assets/css/color/orange-color.css")
     });
-    $("ul.pattern .color8").click(function () {
+    $("ul.pattern .color8").click(function() {
         return $("#option-color").attr("href", "assets/css/color/pink-color.css")
     });
-    $("ul.pattern .color9").click(function () {
+    $("ul.pattern .color9").click(function() {
         return $("#option-color").attr("href", "assets/css/color/red-color.css")
     });
-    $("#color-switcher .pallet-button").click(function () {
+    $("#color-switcher .pallet-button").click(function() {
         $("#color-switcher .color-pallet").toggleClass('show')
     })
 
@@ -244,8 +208,7 @@ function bgBackground() {
 function colorFull() {
     var allDivs = document.getElementsByClassName('data-text-color');
 
-    for( var i =0; i < allDivs.length; ++i )
-    {
+    for (var i = 0; i < allDivs.length; ++i) {
         var color = allDivs[i].getAttribute('data-color');
         allDivs[i].style.color = "" + color + "";
     }
@@ -255,8 +218,7 @@ function colorFull() {
 function borderColor() {
     var allDivs = document.getElementsByClassName('timeline-border');
 
-    for( var i =0; i < allDivs.length; ++i )
-    {
+    for (var i = 0; i < allDivs.length; ++i) {
         var color = allDivs[i].getAttribute('data-color');
         allDivs[i].style.borderLeftColor = "" + color + "";
     }
@@ -270,10 +232,10 @@ function menuToggler() {
 
     "use strict";
 
-    $(".overlay-menu-toggler").on("click",function(){
+    $(".overlay-menu-toggler").on("click", function() {
         $(".overlay-menu").addClass("show");
     });
-    $(".overlay-menu").on("click",function(){
+    $(".overlay-menu").on("click", function() {
         $(this).removeClass("show");
     });
 }
@@ -281,26 +243,26 @@ function menuToggler() {
 /*-----------------------------
       SLIDER OWL CAROUSEL
 ------------------------------*/
-function sliderOwlCarousel(){
+function sliderOwlCarousel() {
     "use strict";
 
     $('.hero .owl-carousel').owlCarousel({
-        loop:true,
+        loop: true,
         items: 1,
         nav: false,
         dots: false,
-        autoplay:true,
+        autoplay: true,
         touchDrag: true,
         smartSpeed: 5000,
         animateOut: 'fadeOut',
         autoplayHoverPause: true,
     });
-    $('#hero-slider').on("translate.owl.carousel", function(){
-        setTimeout(function(){
+    $('#hero-slider').on("translate.owl.carousel", function() {
+        setTimeout(function() {
             $('.hero-slide').removeClass("zoom");
         }, 1000)
     });
-    $('#hero-slider').on("translated.owl.carousel", function(){
+    $('#hero-slider').on("translated.owl.carousel", function() {
         $('.owl-item.active .hero-slide').addClass("zoom");
     });
 }
@@ -312,7 +274,7 @@ function typedJS() {
     "use strict";
 
     var $element = $(".element");
-    if($element.length){
+    if ($element.length) {
         var options = {
             strings: $element.attr('data-elements').split(','),
             typeSpeed: 100,
@@ -329,11 +291,22 @@ function typedJS() {
 function skills() {
 
     "use strict";
-    $('.skillbar').each(function () {
+    $('.skillbar').each(function() {
         $(this).find('.skillbar-bar').animate({
             width: $(this).attr('data-percent')
         }, 6000);
     });
+}
+
+/*-------------------------
+            Count up
+  -------------------------*/
+function countup() {
+
+    "use strict";
+
+    $('.timer').countTo();
+    $('.count-number').removeClass('timer');
 }
 
 /*-------------------------
@@ -349,17 +322,17 @@ function portfolioPopup() {
                 delegate: '.js-zoom-gallery',
                 type: 'image',
                 gallery: {
-                    enabled:true
+                    enabled: true
                 },
                 callbacks: {
                     open: function() {
                         $.fn.pagepiling.setKeyboardScrolling(false);
-                      
+
                     },
                     close: function() {
                         $.fn.pagepiling.setKeyboardScrolling(true);
                     }
-                  }
+                }
             });
         });
     }
@@ -382,7 +355,7 @@ function portfolioIsotop() {
             easing: 'linear'
         }
     });
-    $filter.find('a').on("click",function() {
+    $filter.find('a').on("click", function() {
         var selector = $(this).attr('data-filter');
         $filter.find('a').removeClass('active');
         $(this).addClass('active');
@@ -439,50 +412,51 @@ function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
+
 function sendEmail() {
 
     "use strict";
 
-    var name     = $('#name').val();
-    var email    = $('#email').val();
-    var subject  = $('#subject').val();
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var subject = $('#subject').val();
     var comments = $('#comments').val();
 
-    if(!name){
+    if (!name) {
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
         $('.toast-body').html('Name is  required');
-    } else if(!email){
+    } else if (!email) {
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
         $('.toast-body').html('Email is  required');
-    } else if(!validateEmail(email)){
+    } else if (!validateEmail(email)) {
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
         $('.toast-body').html('Email is not valid');
-    } else if(!subject){
+    } else if (!subject) {
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
         $('.toast-body').html('Subject is  required');
-    }else if(!comments){
+    } else if (!comments) {
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
         $('.toast-body').html('Comments is  required');
-    }else {
+    } else {
         $.ajax({
             type: 'POST',
             data: $("#contactForm").serialize(),
-            url:  "sendEmail.php",
+            url: "sendEmail.php",
             beforeSend: function() {
                 $('#submit-btn').html('<span class="spinner-border spinner-border-sm"></span> Loading..');
             },
             success: function(data) {
                 $('#submit-btn').html('Submit');
                 var myObj = JSON.parse(data);
-                if(myObj['status']=='Congratulation'){
+                if (myObj['status'] == 'Congratulation') {
                     $('#message').toast('show').addClass('bg-success').removeClass('bg-danger bg-warning');
-                    $('.toast-body').html('<strong>'+ myObj['status'] +' : </strong> '+ myObj['message']);
-                }else if(myObj['status']=='Error'){
+                    $('.toast-body').html('<strong>' + myObj['status'] + ' : </strong> ' + myObj['message']);
+                } else if (myObj['status'] == 'Error') {
                     $('#message').toast('show').addClass('bg-danger').removeClass('bg-success bg-warning');
-                    $('.toast-body').html('<strong>'+ myObj['status'] +' : </strong> '+ myObj['message']);
-                }else if(myObj['status']=='Warning'){
+                    $('.toast-body').html('<strong>' + myObj['status'] + ' : </strong> ' + myObj['message']);
+                } else if (myObj['status'] == 'Warning') {
                     $('#message').toast('show').addClass('bg-warning').removeClass('bg-success bg-danger');
-                    $('.toast-body').html('<strong>'+ myObj['status'] +' : </strong> '+ myObj['message']);
+                    $('.toast-body').html('<strong>' + myObj['status'] + ' : </strong> ' + myObj['message']);
                 }
             },
             error: function(xhr) {
@@ -517,7 +491,3 @@ function sendEmail() {
 //     } else {
 //         $('.follow-label').removeClass('special-section');
 //     }
-
-
-
-

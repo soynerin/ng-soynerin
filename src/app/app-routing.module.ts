@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+import { HeroComponent } from './pages/hero/hero.component';
 
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: HeroComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
