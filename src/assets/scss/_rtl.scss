@@ -7,89 +7,84 @@ body{
 .rtl .text-left{
     text-align: right !important;
 }
-.overlay-menu .overlay-menu-list .overlay-nav > ul {
-    float: right;
-}
-.overlay-menu-toggler {
-    left: 24px;
-    right: inherit;
-}
-.overlay-nav .list-inline-item:not(:last-child) {
-    margin-right: inherit;
-    margin-left: 0.5rem !important;
-}
-#pp-nav{
-    li{
-        .pp-tooltip {
-            transform: translateY(0);
-            padding-right: inherit;
-            padding-left: 1rem;
-        }
-        .active span {
-            transform: translateX(0);
-        }
-        .active ~ .pp-tooltip {
-            padding-right: inherit;
-            padding-left: 1.5rem;
-        }
-    }
-    &.left {
-        left: 27px;
-    }
-}
-.logo {
-    margin-left: inherit;
-    margin-right: 14px;
+.rtl .mfp-counter {
     direction: ltr;
 }
-.social-box {
-    left: inherit;
-    right: 1.5rem;
+.navbar-nav{
+    margin-right: auto !important;
+    margin-left: inherit !important;
 }
-.hero-03{
-    .square {
-        left: inherit;
-        right: -10px;
-    }
-    h1,h4{
-        direction: ltr;
-    }
-} 
-.rtl .mfp-counter {
-    direction: ltr !important;
+.navbar-brand{
+    direction: ltr;
 }
 ul{
     padding-right: 0;
 }
+.color-switcher .pallet-button {
+    left: inherit;
+    right: 0;
+    border-radius: 1rem 0 0 1rem;
+}
+.color-switcher .color-pallet {
+    left: inherit;
+    right: 25px;
+    border-radius: 16px 0 16px 16px;
+}
 .color-scheme {
-    left: 31px;
     right: inherit;
-    i {
+    left: 0;
+    border-radius: 0 1rem 1rem 0;
+    i{
         transform: rotateY(180deg);
         display: inline-block;
     }
 }
-
-.color-switcher{
-    .pallet-button {
-        left: inherit;
-        right: 0;
-        border-radius: 16px 0 0 16px;
-    }
-    .color-pallet{
-        right: 25px;
-        left: inherit;
-        border-radius: 16px 0 0 16px;
-    }
-}
-.hero-01 {
-    background: url("http://placehold.it/1920x1280") no-repeat;
-    background-size: cover;
-}
-.hero-06 .square{
+.social-box {
+    left: inherit;
+    right: 1.5rem;
+  }
+.hero-03 .square {
+    left: inherit;
     right: -10px;
-    left: inherit
 }
+.hero-03 h1, .hero-03 h4 {
+    direction: ltr;
+}
+.services-icon {
+    float: right !important;
+  }
+  
+  .services .services-content {
+    padding-right: 3rem !important;
+    padding-left: inherit !important;
+  }
+  
+  .services.colorfull-service .services-content {
+    padding-right: 4rem  !important;
+    padding-left: inherit !important;
+  }
+  .testimonial .testimonial-item::before{
+      left: 30px;
+      right: inherit;
+  }
+  .testimonial .image-border {
+    margin-right: inherit;
+    margin-left: 16px;
+}
+.contact .contact-info i {
+    margin-right: inherit;
+    margin-left: 0.5rem;
+    float: right !important;
+}
+
+
+
+
+
+
+
+
+
 .hero-social .list-inline-item:not(:last-child) {
     margin-right: inherit;
     margin-left: 1.5rem;
@@ -97,17 +92,6 @@ ul{
 .personal-item ~.button-border{
     margin-left: 1.5rem;
     margin-right: inherit !important;
-}
-.services-icon{
-    float: right !important;
-}
-.services .services-content {
-    padding-right: 3rem  !important;
-    padding-left: inherit !important;
-}
-.services.colorfull-service .services-content{
-    padding-right: 4rem  !important;
-    padding-left: inherit !important;
 }
 .resume h3 i {
     padding-left: 0.75rem;
@@ -160,21 +144,7 @@ ul{
     }
 } 
  
-.language-skill{
-    ul{
-        text-align: left !important;
-    }
-    i{
-        transform: rotateY(180deg);
-        display: inline-block;
-    }
-    .list-inline-item:not(:last-child) {
-        margin-right: inherit;
-    }
-    .list-inline-item{
-        margin-left: 0.5rem;
-    }
-} 
+
 
 .portfolio{
     .portfolio-icon button i {
@@ -216,22 +186,31 @@ ul{
     padding-right: inherit !important;
 }
 
+
 //Media Screen
 @media (max-width: 1199px){
     .color-scheme.hide{
         left: -50px;
         right: inherit;
     }
-    @media (max-width: 767px) {
-        .overlay-menu-toggler {
-            right: inherit;
-            left: 0.5rem;
-        }
-    
-        .color-scheme {
-            right: inherit;
-            left: 15px;
-        }
+    .menu-toggler {
+        right: 25px;
+        left: inherit;
+
+    }
+    .menu-toggler.open {
+        right: 105px;
+        left: inherit;
+    }
+    header {
+        right: -90px;
+    }
+    header.open {
+        right: 0;
+        left: inherit;
+    }
+    #main > section {
+        padding-right: 0;
     }
 
 }

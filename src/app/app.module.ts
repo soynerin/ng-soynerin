@@ -15,6 +15,7 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { TestimonialComponent } from './pages/testimonial/testimonial.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { SkillsComponent } from './pages/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     PortfolioComponent,
     TestimonialComponent,
     BlogComponent,
-    ContactComponent
+    ContactComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,

@@ -7,61 +7,17 @@ body {
   text-align: right !important;
 }
 
-.overlay-menu .overlay-menu-list .overlay-nav > ul {
-  float: right;
-}
-
-.overlay-menu-toggler {
-  left: 24px;
-  right: inherit;
-}
-
-.overlay-nav .list-inline-item:not(:last-child) {
-  margin-right: inherit;
-  margin-left: 0.5rem !important;
-}
-
-#pp-nav li .pp-tooltip {
-  transform: translateY(0);
-  padding-right: inherit;
-  padding-left: 1rem;
-}
-
-#pp-nav li .active span {
-  transform: translateX(0);
-}
-
-#pp-nav li .active ~ .pp-tooltip {
-  padding-right: inherit;
-  padding-left: 1.5rem;
-}
-
-#pp-nav.left {
-  left: 27px;
-}
-
-.logo {
-  margin-left: inherit;
-  margin-right: 14px;
-  direction: ltr;
-}
-
-.social-box {
-  left: inherit;
-  right: 1.5rem;
-}
-
-.hero-03 .square {
-  left: inherit;
-  right: -10px;
-}
-
-.hero-03 h1, .hero-03 h4 {
-  direction: ltr;
-}
-
 .rtl .mfp-counter {
-  direction: ltr !important;
+  direction: ltr;
+}
+
+#main > section {
+  padding-right: 80px;
+  padding-left: inherit;
+}
+
+#main > section {
+  transform: translate3d(-100%, 0, 0);
 }
 
 ul {
@@ -79,25 +35,24 @@ ul {
 }
 
 .color-switcher .pallet-button {
-  left: inherit;
-  right: 0;
-  border-radius: 16px 0 0 16px;
+  left: 30px;
+  right: inherit;
 }
 
 .color-switcher .color-pallet {
-  right: 25px;
-  left: inherit;
-  border-radius: 16px 0 0 16px;
+  left: 95px;
+  right: inherit;
 }
 
-.hero-01 {
-  background: url("http://placehold.it/1920x1280") no-repeat;
-  background-size: cover;
+header {
+  right: 0;
+  left: inherit;
+  border-radius: 1.25rem 0 0 1.25rem;
+  box-shadow: 3px 3px 8px rgba(77, 81, 92, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.6) !important;
 }
 
-.hero-06 .square {
-  right: -10px;
-  left: inherit;
+header ul {
+  padding: 0;
 }
 
 .hero-social .list-inline-item:not(:last-child) {
@@ -237,21 +192,32 @@ ul {
   padding-right: inherit !important;
 }
 
+.arshia-dark header {
+  box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e !important;
+}
+
 @media (max-width: 1199px) {
   .color-scheme.hide {
     left: -50px;
     right: inherit;
   }
-}
-
-@media (max-width: 1199px) and (max-width: 767px) {
-  .overlay-menu-toggler {
-    right: inherit;
-    left: 0.5rem;
+  .menu-toggler {
+    right: 25px;
+    left: inherit;
   }
-  .color-scheme {
-    right: inherit;
-    left: 15px;
+  .menu-toggler.open {
+    right: 105px;
+    left: inherit;
+  }
+  header {
+    right: -90px;
+  }
+  header.open {
+    right: 0;
+    left: inherit;
+  }
+  #main > section {
+    padding-right: 0;
   }
 }
 /*# sourceMappingURL=rtl-main.css.map */

@@ -1,88 +1,93 @@
-@import "colorfull-variable";
+@import "color-full-variable";
 
-
-
-.count-icon img {
+.count-icon img{
     width: 45px;
 }
-.timeline-items .timeline-icon {
-    border: none;
-    left: -9px !important;
+.services-item{
+    box-shadow: $box-shadow !important;
+    img{
+        width: 50px;
+    }
+    .text-muted{
+        color: $dark-color !important;
+    }
+    .text-dark{
+        color: $secondary-dark-color !important;
+    }
+    .services-content{
+        padding-left: 4rem !important;
+        padding-right: 1rem;
+    }
 }
-.timeline-items .timeline-border {
-    border-left: 2px solid;
+.timeline-items{
+    .timeline-border{
+        border-left: 2px solid ;   
+    }
+    .timeline-item:before
+    {
+        display: none !important;
+    }
+    .timeline-icon{
+        border:none;
+        left: -9px !important;
+    }
 }
-.timeline-item::before {
-    display: none;
+.portfolio{
+    .portfolio-item-content::before {
+        background-color: rgba(255, 66, 116, 0.8);
+    }
+    .portfolio-icon button {
+        background-color: $green-color;
+        color: $light;
+    }
+    .portfolio-icon a {
+        background-color: $yellow-color;
+        color: $light;
+    }
 }
-.services-item img {
-    width: 40px;
-}
-.services .services-item .text-dark {
-    color: #3c3c3c !important;
-}
-.services .services-item .text-muted {
-    color: #5f5f5f !important;
-}
-.services-item {
-    box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1) !important
-}
-
-.portfolio .portfolio-item-content::before {
-    background-color: transparentize($color: #ff4274, $amount: 0.2)
-}
-.portfolio .portfolio-icon button {
-    background-color: #1ab394;
-}
-.portfolio .portfolio-icon button i, .portfolio .portfolio-icon a i {
-    color: #fafafa;
-}
-.portfolio .portfolio-icon a {
-    background-color: #fbdd62;
+.blog-link{
+    a{
+        color: $green-color !important;
+        &:hover{
+            color: $green-color-hover !important;
+        }
+    }
 } 
-.contact .contact-info img {
-    width: 50px;
+.hero-06 .hero-social a i:hover{
+    color: $blue-color;
 }
 
-.rtl{
-    .timeline-items .timeline-border {
-        border-left: none !important;
-        border-right: 2px solid;
-    }
-    .timeline-items .timeline-icon {
-        left: inherit !important;
-        right: -9px !important;
-    }
-}
 .flat-demo{
-    .portfolio-item-content {
-        box-shadow: 0px 0px 16px rgba(0,0,0,.2);
-    }
-    .section{
-        background-color: #f8f8f8 !important;
-    }
     .box-border{
-        background-color: #fefefe !important;
-        box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1) !important;
+        background-color: $bg-light !important;
+      box-shadow: $box-shadow !important;
+    }
+    .portfolio{
+        .pill-button:hover, .pill-button.active {
+            background-color: $green-color !important;
+         }
+        .portfolio-item-content{
+            box-shadow: $box-shadow !important;
+        }
     }
 }
 .flat-demo.arshia-dark{
-    .section{
-        background-color: #2c2d30 !important;
-    }
     .box-border{
-        background-color: rgba(52, 53, 57, 0.9) !important;
-        box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2) !important;
+        background-color: $box-color !important;
+        box-shadow: $box-shadow-dark !important;
+    }
+    .portfolio .portfolio-item-content{
+        box-shadow: $box-shadow-dark !important;
+    }
+    .image-border img {
+        border: 1px solid $dark-color;
     }
 }
 
 
-
-
-
-
-
-
-
-
+    
+  
+  
+  
+  
 

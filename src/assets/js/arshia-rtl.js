@@ -1,9 +1,9 @@
 /*-----------------------------------------------------------
-* Template Name    : arshia | Bootstrap 4 personal, portfolio and resume
-* Author           : Retrinagroup
+* Template Name    : Arshia | Responsive One Page HTML Template
+* Author           : Retrina Group
 * Version          : 1.0.0
-* Created          : March 2020
-* File Description : Main rtl js file of the template
+* Created          : June 2020
+* File Description : Main js file of the template
 *------------------------------------------------------------
 */
 
@@ -14,139 +14,105 @@ var $root = $('html, body');
 $(document).ready(function () {
 
     "use strict";
-
     colorScheme();
     ColorPallet();
-    bgBackground();
-    colorFull();
-    borderColor();
+    PillMenuToggler();
     menuToggler();
     sliderOwlCarousel();
-    clientCarousel();
     typedJS();
     skills();
-    countup();
+    countUp();
     portfolioPopup();
-    validateEmail();
-    sendEmail();
-    $('.owl-item.active .hero-slide').addClass('zoom');
-
+    clientCarousel();
+    BlogCarousel();
 
 });
 
 $window.on("load", (function() {
     $("#overlayer").delay(500).fadeOut('slow');
     $(".loader").delay(1000).fadeOut('slow');
-    pagePilling();
     portfolioIsotop();
 }));
-
-/*-----------------------------------------------------------------------------
-                                   FUNCTIONS
------------------------------------------------------------------------------*/
-
-/*-------------------------
-       Page Pilling
--------------------------*/
-function pagePilling(){
-
-    "use strict";
-    
-    var ids = [];
-    var tooltips = [];
-    var colors = [];
-    $('.section').each(function () {
-        ids.push(this.id);
-        tooltips.push($(this).data("navigation-tooltip"));
-        colors.push($(this).data("navigation-color"));
-    });
-    $('#pagepiling').pagepiling({
-        sectionsColor: colors,
-        anchors: ids,
-        menu: '#myMenu',
-        direction: 'vertical',
-        verticalCentered: true,
-        navigation: {
-            'position': 'left',
-            'tooltips': tooltips
-        },
-        loopBottom: true,
-        loopTop: true,
-        scrollingSpeed: 700,
-        easing: 'swing',
-        css3: true,
-        normalScrollElements: null,
-        normalScrollElementTouchThreshold: 5,
-        touchSensitivity: 5,
-        keyboardScrolling: true,
-        sectionSelector: '.section',
-        animateAnchor: true,
-        //events
-        onLeave: function(index, nextIndex, direction){
-            if(nextIndex==1) {
-                $(".special-section").css('color', '#fff');
-            }
-            else{
-                $(".special-section").css('color', '#3c3c3c');
-            }
-
-            if(nextIndex==1 &&  $('.section.hero').hasClass("speacial-hero")) {
-                $("#pp-nav li span").css('backgroundColor', '#fff');
-            }
-            else{
-                $("#pp-nav li span").css('backgroundColor', '#3c3c3c');
-            }
-
-            if(nextIndex==1 &&  $('.section.hero').hasClass("speacial-hero")) {
-                $("#pp-nav li .pp-tooltip").css('color', '#fff');
-            }
-            else{
-                $("#pp-nav li .pp-tooltip").css('color', '#3c3c3c');
-            }
-
-        },
-        afterLoad: function(anchorLink, index){},
-        afterRender: function(index){
-            if(index>1) {
-                $(".special-section").css('color', '#3c3c3c');
-            } else{
-                $(".special-section").css('color', '#fff');
-            }
-
-            if( index>1 && $('.section.hero').hasClass("speacial-hero")) {
-                $("#pp-nav li span").css('backgroundColor', '#3c3c3c');
-            }
-            else if ($('.section.hero').hasClass("speacial-hero")){
-                $("#pp-nav li span").css('backgroundColor', '#fff');
-            }
-
-            if( index>1 && $('.section.hero').hasClass("speacial-hero")) {
-                $("#pp-nav li .pp-tooltip").css('color', '#3c3c3c');
-            }
-            else if ($('.section.hero').hasClass("speacial-hero")){
-                $("#pp-nav li .pp-tooltip").css('color', '#fff');
-            }
-
-
-        },
-    });
-}
 
 /*-------------------------
         Color Scheme
 -------------------------*/
 function colorScheme(){
-
-    "use strict";
-
     var $darkLogo = $('.dark-logo');
-    $('.color-scheme').on("click",function() {
+    $('.color-scheme').click(function() {
         $("body").toggleClass('arshia-dark');
-        // $('.section').toggleClass('dark-bg');
         $('.color-scheme').removeClass('d-none').addClass('d-inline-block');
         $(this).removeClass('d-inline-block').addClass('d-none');
     });
 }
+
+/*-------------------------
+        ColorFull Demo
+-------------------------*/
+
+var list = document.getElementsByClassName('data-background');
+
+     for (var i = 0; i < list.length; i++) {
+       var color = list[i].getAttribute('data-color');
+       list[i].style.backgroundColor = "" + color + "";
+     }
+
+
+var allDivs = document.getElementsByClassName('data-text-color');
+
+    for( var i =0; i < allDivs.length; ++i )
+    {
+        var color = allDivs[i].getAttribute('data-color');
+       allDivs[i].style.color = "" + color + "";
+    }
+
+var allDivs = document.getElementsByClassName('timeline-border');
+
+for( var i =0; i < allDivs.length; ++i )
+{
+    var color = allDivs[i].getAttribute('data-color');
+   allDivs[i].style.borderRightColor = "" + color + "";
+}
+   
+      
+/*-----------------------------------------------------------------------------
+                                   FUNCTIONS
+-----------------------------------------------------------------------------*/
+$("#menu > li a").on("click" , function () {
+    $("#main > section.active, #menu > li a").removeClass("active");
+    $(this).addClass('active');
+    var $id = $(this).attr('href');
+    $('#main').children($id).addClass('active');
+});
+// -------------------------------------------------------------
+//   Scroll Button
+// -------------------------------------------------------------
+function nextSection() {
+    $('.next-button').click(function(){
+        var $next = $('#main > section.active, #menu > li a').removeClass('active').next('.section');
+    if ($next.length) {
+        $next.addClass('active');
+        
+        
+    }
+    else {
+        $(".section:first").addClass('active');
+    }
+    });
+    
+}
+function prevSection() {
+    $('.previous-button').click(function(){
+        var $prev = $('#main > section.active, #menu > li a').removeClass('active').prev('.section');
+    if ($prev.length) {
+        $prev.addClass('active'); 
+    }
+    else {
+        $(".section:last").addClass('active');
+    }
+    });
+}
+
 // -------------------------------------------------------------
 //   Color Panel
 // -------------------------------------------------------------
@@ -155,107 +121,74 @@ function ColorPallet() {
     "use strict";
 
     $("ul.pattern .color1").click(function () {
-        return $("#option-color").attr("href", "assets/css/color/green-color.css")
+        return $("#option-color").attr("href", "assets/css/color/default.css")
     });
     $("ul.pattern .color2").click(function () {
-        return $("#option-color").attr("href", "assets/css/color/yellow-color.css")
-    });
-    $("ul.pattern .color3").click(function () {
-        return $("#option-color").attr("href", "assets/css/color/golden-color.css")
-    });
-    $("ul.pattern .color4").click(function () {
-        return $("#option-color").attr("href", "assets/css/color/sky-blue-color.css")
-    });
-    $("ul.pattern .color5").click(function () {
-        return $("#option-color").attr("href", "assets/css/color/blue-color.css")
-    });
-    $("ul.pattern .color6").click(function () {
-        return $("#option-color").attr("href", "assets/css/color/purple-color.css")
-    });
-    $("ul.pattern .color7").click(function () {
         return $("#option-color").attr("href", "assets/css/color/orange-color.css")
     });
-    $("ul.pattern .color8").click(function () {
-        return $("#option-color").attr("href", "assets/css/color/pink-color.css")
+    $("ul.pattern .color3").click(function () {
+        return $("#option-color").attr("href", "assets/css/color/blue-color.css")
     });
-    $("ul.pattern .color9").click(function () {
-        return $("#option-color").attr("href", "assets/css/color/red-color.css")
+    $("ul.pattern .color4").click(function () {
+        return $("#option-color").attr("href", "assets/css/color/green-color.css")
+    });
+    $("ul.pattern .color5").click(function () {
+        return $("#option-color").attr("href", "assets/css/color/yellow-color.css")
+    });
+    $("ul.pattern .color6").click(function () {
+        return $("#option-color").attr("href", "assets/css/color/pink-color.css")
     });
     $("#color-switcher .pallet-button").click(function () {
         $("#color-switcher .color-pallet").toggleClass('show')
     })
 
 }
-/*-------------------------
-        ColorFull Demo
--------------------------*/
-function bgBackground() {
+
+// /*-------------------------
+//     MENU TOGGLER
+// -------------------------*/
+function PillMenuToggler() {
 
     "use strict";
-
-    var list = document.getElementsByClassName('data-background');
-
-    for (var i = 0; i < list.length; i++) {
-        var color = list[i].getAttribute('data-color');
-        list[i].style.backgroundColor = "" + color + "";
-    }
-}
-
-
-function colorFull() {
-    var allDivs = document.getElementsByClassName('data-text-color');
-
-    for( var i =0; i < allDivs.length; ++i )
-    {
-        var color = allDivs[i].getAttribute('data-color');
-        allDivs[i].style.color = "" + color + "";
-    }
-}
-
-
-function borderColor() {
-    var allDivs = document.getElementsByClassName('timeline-border');
-
-    for( var i =0; i < allDivs.length; ++i )
-    {
-        var color = allDivs[i].getAttribute('data-color');
-        allDivs[i].style.borderRightColor = "" + color + "";
-    }
-}
-
-/*-------------------------
-    MENU TOGGLER
--------------------------*/
-function menuToggler() {
-
-    "use strict";
-
-    $(".overlay-menu-toggler").on("click",function(){
+    $(".overlay-menu-toggler").click(function(){
         $(".overlay-menu").addClass("show");
     });
-    $(".overlay-menu").on("click",function(){
+    $(".overlay-menu").click(function(){
         $(this).removeClass("show");
     });
-
 }
 
+function  menuToggler() {
+    "use strict";
+    var $menuToggler = $(".menu-toggler");
+    var $header = $('header');
+    $menuToggler.click(function () {
+        $(this).toggleClass('open').find('i').toggleClass('lni-menu lni-close ');
+        $header.toggleClass('open');
+        $('.color-scheme, .pallet-button, .color-pallet').toggleClass('hide');
+    });
+    if ($window.width() < 1200){
+        $('header li a').click(function () {
+            $header.removeClass('open');
+            $('.color-scheme, .pallet-button, .color-pallet').toggleClass('hide');
+            $menuToggler.removeClass('open').find('i').removeClass('lni-close').addClass('lni-menu');
+        })
+    }
+}
 /*-----------------------------
       SLIDER OWL CAROUSEL
 ------------------------------*/
 function sliderOwlCarousel(){
-    "use strict";
-
-    $('.hero .owl-carousel').owlCarousel({
+    $('.hero-03 .owl-carousel').owlCarousel({
         loop:true,
         items: 1,
         nav: false,
         dots: false,
-        rtl: true,
         autoplay:true,
         touchDrag: true,
         smartSpeed: 5000,
         animateOut: 'fadeOut',
-        autoplayHoverPause: true,
+        //autoplayHoverPause: true,
     });
     $('#hero-slider').on("translate.owl.carousel", function(){
         setTimeout(function(){
@@ -266,7 +199,6 @@ function sliderOwlCarousel(){
         $('.owl-item.active .hero-slide').addClass("zoom");
     });
 }
-
 /*-------------------------
         TYPED JS
 -------------------------*/
@@ -274,26 +206,21 @@ function typedJS() {
 
     "use strict";
 
-    var $element = $(".element");
-    if($element.length){
-        var options = {
-            strings: $element.attr('data-elements').split(','),
-            typeSpeed: 100,
-            backDelay: 3000,
-            backSpeed: 50,
-            loop: true
-        };
-        var typed = new Typed(".element", options);
-    }
+    var options = {
+        strings: $(".element").attr('data-elements').split(','),
+        typeSpeed: 100,
+        backDelay: 3000,
+        backSpeed: 50,
+        loop: true
+    };
+    var typed = new Typed(".element", options);
 }
-
 /*-------------------------
-            Skills
+          Skills
 -------------------------*/
 function skills() {
 
     "use strict";
-
     $('.skillbar').each(function () {
         $(this).find('.skillbar-bar').animate({
             width: $(this).attr('data-percent')
@@ -302,16 +229,16 @@ function skills() {
 }
 
 /*-------------------------
-            Count up
-  -------------------------*/
-function countup() {
+         Count up
+-------------------------*/
+function countUp() {
 
     "use strict";
 
     $('.timer').countTo();
     $('.count-number').removeClass('timer');
-}
 
+}
 /*-------------------------
      MAGNIFIC POPUP JS
 -------------------------*/
@@ -326,21 +253,11 @@ function portfolioPopup() {
                 type: 'image',
                 gallery: {
                     enabled:true
-                },
-                callbacks: {
-                    open: function() {
-                        $.fn.pagepiling.setKeyboardScrolling(false);
-                      
-                    },
-                    close: function() {
-                        $.fn.pagepiling.setKeyboardScrolling(true);
-                    }
-                  }
+                }
             });
         });
     }
 }
-
 /*-------------------------
         ISOTOPE JS
 -------------------------*/
@@ -352,7 +269,7 @@ function portfolioIsotop() {
     var $filter = $('#portfolio-filter');
     $container.isotope({
         filter: '*',
-        isOriginLeft: false,
+        isOriginLeft:false,
         layoutMode: 'masonry',
         animationOptions: {
             duration: 750,
@@ -369,6 +286,7 @@ function portfolioIsotop() {
                 animationDuration: 750,
                 easing: 'linear',
                 queue: false,
+                touchSensitivity: 2,
             }
         });
         return false;
@@ -376,7 +294,7 @@ function portfolioIsotop() {
 }
 
 /*-------------------------
-    Testimonial CAROUSEL JS
+  Testimonial CAROUSEL JS
 -------------------------*/
 function clientCarousel() {
     $(".testimonial .owl-carousel").owlCarousel({
@@ -391,19 +309,39 @@ function clientCarousel() {
         smartSpeed: 700,
         autoplayHoverPause: false,
         responsiveClass: true,
-        rtl:true,
+        rtl: true,
         responsive: {
             0: {
                 items: 1,
-                nav: false,
-                mouseDrag: false
+                nav: false
             },
-            1200: {
-                items: 2,
+            992: {
+                items: 3,
                 nav: false,
             },
 
         }
+    });
+}
+/*-------------------------
+     Blog CAROUSEL JS
+-------------------------*/
+function BlogCarousel() {
+
+    "use strict";
+
+    $(".blog .owl-carousel").owlCarousel({
+        items: 1,
+        nav: false,
+        autoplay: false,
+        loop: true,
+        dots: true,
+        margin: 30,
+        mouseDrag: true,
+        touchDrag: true,
+        smartSpeed: 1000,
+        autoplayHoverPause: true,
+
     });
 }
 /*-------------------------

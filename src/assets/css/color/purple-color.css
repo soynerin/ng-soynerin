@@ -1,3 +1,10 @@
+/*-----------------------------------------------------------
+* Template Name    : Arshia - Fully Responsive Personal Template
+* Author           : Retrina Group
+* Version          : 1.0.0
+* Created          : June 2020
+* File Description : Color sass file of the template
+*------------------------------------------------------------*/
 ::selection {
   background: rgba(193, 121, 192, 0.3);
 }
@@ -6,96 +13,47 @@
   background: rgba(193, 121, 192, 0.3);
 }
 
-.pill-button {
-  color: #c179c0;
-}
-
-.pill-button:hover, .pill-button.active {
-  color: #c179c0;
-}
-
-.overlay-menu a:hover {
+.base-color {
   color: #c179c0 !important;
 }
 
-.overlay-menu a.active {
-  color: #c179c0 !important;
+.hero-social li a:hover, .blog-link a:hover {
+  color: #b96db8 !important;
 }
 
 .bg-base-color {
   background-color: #c179c0 !important;
 }
 
-.base-color {
-  color: #c179c0 !important;
-}
-
-.follow-label::before {
-  background-color: #c179c0;
-}
-
-.social a:hover {
-  color: #c179c0 !important;
-}
-
-.social-icon a:hover {
-  color: #c179c0;
-}
-
-#pp-nav li:hover span {
-  background-color: #c179c0 !important;
-}
-
-#pp-nav li .active span {
-  background-color: #c179c0 !important;
-}
-
-.border-style {
-  background-color: #c179c0;
-}
-
-.timeline-icon {
-  border: 1px solid #c179c0;
-  background-color: #c179c0;
-}
-
-.timeline-year {
-  color: #c179c0;
-}
-
-.timeline-item:before {
-  border: 1px solid #c179c0;
-}
-
-.skill-box .fill-skillbar {
-  background-color: #c179c0;
-}
-
-.portfolio .portfolio-filter li a {
-  color: #c179c0;
+.follow-label:before,
+.skill-box .fill-skillbar,
+.timeline-area:before,
+.testimonial .testimonial-border,
+.blog-content:before,
+.blog .owl-dot.active span {
+  background: #c179c0;
 }
 
 .testimonial .owl-dot.active span {
-  background-color: #c179c0;
+  background: #c179c0 !important;
 }
 
-.blog-link a:hover {
-  color: #b96db8 !important;
-}
-
-.portfolio .portfolio-item-content:before {
-  background-color: rgba(193, 121, 192, 0.9);
-}
-
-.portfolio .portfolio-icon button i, .portfolio .portfolio-icon a i {
-  color: #c179c0;
-}
-
-.testimonial .owl-carousel .owl-dot.active span {
-  background-color: #c179c0;
-}
-
-.contact .form-item .form-control {
+.menu li a,
+.pill-button,
+header .navbar-brand span,
+header .navbar-brand b,
+.pill-button:hover,
+.ability ul li:before,
+.timeline-icon,
+.timeline-year,
+.language-skill ul li i,
+.contact .form-item .form-control,
+.comments .comment-info a,
+.portfolio .portfolio-icon a,
+.portfolio .portfolio-icon button,
+.blog-content button:hover,
+.comments .comment-info a:hover,
+.social a:hover {
   color: #c179c0;
 }
 
@@ -103,6 +61,42 @@
   border-top: 4px solid #c179c0 !important;
 }
 
+.timeline-icon {
+  border: 1px solid #c179c0;
+  background-color: #c179c0;
+}
+
+.portfolio .portfolio-item-content::before {
+  background-color: rgba(193, 121, 192, 0.9);
+}
+
+.menu-toggler span {
+  background-color: #c179c0;
+}
+
+.timeline-item:before {
+  border: 2px solid #c179c0;
+}
+
+.timeline-item:before {
+  border: 1px solid #c179c0;
+}
+
+.header nav .nav-pills a.active {
+  color: #c179c0 !important;
+}
+
+.header nav a:hover {
+  color: #c179c0 !important;
+}
+
+.testimonial .testimonial-item::before {
+  color: #c179c0;
+}
+
+/*-------------------------
+      Flat Demo
+-------------------------*/
 .flat-demo .button-border, .arshia-dark.flat-demo .button-border {
   background-color: #c179c0;
 }
@@ -111,11 +105,11 @@
   background-color: #b96db8;
 }
 
-.arshia-dark .social-icon a:hover, .arshia-dark .social a:hover {
-  color: #c179c0 !important;
+.arshia-dark .hero-social li a:hover {
+  color: #b96db8 !important;
 }
 
-.arshia-dark #pp-nav li .active span {
-  background-color: #c179c0 !important;
+.arshia-dark .header nav a:hover {
+  color: #b96db8 !important;
 }
 /*# sourceMappingURL=purple-color.css.map */
