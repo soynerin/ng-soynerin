@@ -74,15 +74,6 @@ header .navbar-brand b ,
 {
     border: 1px solid $yellow-color;
 }
-.header nav .nav-pills a.active {
-    color: $yellow-color!important;
-}
-.header nav a:hover {
-    color: $yellow-color!important;
-  }
-.testimonial .testimonial-item::before {
-    color: $yellow-color;
-}
 
 /*-------------------------
       Flat Demo
@@ -97,9 +88,6 @@ header .navbar-brand b ,
 
 .arshia-dark{
     .hero-social li a:hover{
-        color: $yellow-color-hover !important;
-    }
-    .header nav a:hover {
         color: $yellow-color-hover !important;
     }
 }

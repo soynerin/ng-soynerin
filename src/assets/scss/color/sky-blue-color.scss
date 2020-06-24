@@ -75,15 +75,6 @@ header .navbar-brand b ,
 {
     border: 1px solid $sky-blue;
 }
-.header nav .nav-pills a.active {
-    color: $sky-blue!important;
-}
-.header nav a:hover {
-    color: $sky-blue!important;
-  }
-.testimonial .testimonial-item::before {
-    color: $sky-blue;
-}
 
 /*-------------------------
       Flat Demo
@@ -97,9 +88,6 @@ header .navbar-brand b ,
 
 .arshia-dark{
     .hero-social li a:hover{
-        color: $sky-blue-hover !important;
-    }
-    .header nav a:hover {
         color: $sky-blue-hover !important;
     }
 }

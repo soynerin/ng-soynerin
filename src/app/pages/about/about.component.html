@@ -1,50 +1,232 @@
-<section id="about" class="section about pb-5 pt-6">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="image-border">
-                    <img src="assets/img/about.webp" alt="soynerin nerin foto perfil">
-                </div>
-            </div>
-            <div class="col-lg-6 mt-4 mt-lg-0">
-                <div class="personal-item ">
-                    <h2 class="mb-0 base-color">Acerca de Mí</h2>
-                    <h5 class="text-dark my-3"><span class="base-color">.NET</span> Desarrollador Web</h5>
-                    <div class="row">
-                        <div class="col-6 personal-info">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <p>Cumpleaños : <span> 9 de mayo de 1989</span></p>
-                                </li>
-                                <li>
-                                    <p>Contacto : <span> +54 11 68573664</span></p>
-                                </li>
-                                <li>
-                                    <p>Ciudad : <span> Buenos Aires, Arg</span></p>
-                                </li>
-                            </ul>
+<section id="about" class="about">
+    <div class="display-table">
+        <div class="display-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center title">
+                            <h2 class="text-dark">Acerca <span class="base-color">de Mí</span></h2>
+                            <p class="text-muted max-width-450 mb-5">Me divierte tomar proyectos y gestionarlos desde el concepto hasta su finalización, diseñar estrategias de mejoras y relacionarme con mi equipo para lograr el objetivo en el menor tiempo posible.</p>
                         </div>
-                        <div class="col-6 personal-info">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <p>Edad : <span> {{ edad }}</span></p>
-                                </li>
-                                <li>
-                                    <p>Título : <span> Técnico</span></p>
-                                </li>
-                                <li>
-                                    <p>Correo : <span> neri.agustin.es@outlook</span></p>
-                                </li>
-                            </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="image-border">
+                            <img src="assets/img/about.webp" alt="soynerin nerin neri espinola foto personal">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <div class="personal-item ">
+                            <h3 class="text-dark mt-4 mt-lg-0"><span class="base-color">UI/UX</span> Designer & Web Developer</h3>
+                            <div class="row">
+                                <div class="col-6 personal-info">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <p>Cumpleaños : <span> 9 de mayo de 1989</span></p>
+                                        </li>
+                                        <li>
+                                            <p>Contacto : <span> +54 11 68573664</span></p>
+                                        </li>
+                                        <li>
+                                            <p>Ciudad : <span> Buenos Aires, Arg</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 personal-info">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <p>Edad : <span> {{ edad }}</span></p>
+                                        </li>
+                                        <li>
+                                            <p>Título : <span> Técnico</span></p>
+                                        </li>
+                                        <li>
+                                            <p>Correo : <span> neri.agustin.es@outlook</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-border mt-3 mb-lg-0 mr-4">
+                            <a href="assets/documents/EspinolaNeriAgustin.docx" class="pill-button">Descargar CV</a>
+                        </div>
+                        <div class="button-border mt-3 mb-lg-0 to-contact">
+                            <a href="#contact" class="pill-button">Contacto</a>
                         </div>
                     </div>
                 </div>
-                <div class="button-border mt-3 mb-lg-0 mr-4">
-                    <a href="assets/documents/EspinolaNeriAgustin.docx" class="pill-button">Descargar CV</a>
+
+                <div id="count-up" class="count-up text-center box-border">
+                    <div class="row">
+
+                        <div class="col-6 col-lg-3 my-3 count-item ">
+                            <div class="count-icon">
+                                <i class="lni-pencil-alt base-color"></i>
+                            </div>
+                            <div class="my-3">
+                                <span class="timer count-number" [CountTo]="proyectosTerminados.countTo" [from]="proyectosTerminados.from" [duration]="proyectosTerminados.duration"></span>                                    
+                            </div>
+                            <p class="mb-0">Proyectos Terminados</p>
+                        </div>
+
+                        <div class="col-6 col-lg-3 my-3 count-item ">
+                            <div class="count-icon">
+                                <i class="lni lni-coffee-cup base-color"></i>
+                            </div>
+                            <div class="my-3">
+                                <span class="timer count-number" [CountTo]="tazasDeCafe.countTo" [from]="tazasDeCafe.from" [duration]="tazasDeCafe.duration"></span>
+                            </div>
+                            <p class="mb-0">Tazas de Café</p>
+                        </div>
+
+                        <div class="col-6 col-lg-3 my-3 count-item ">
+                            <div class="count-icon">
+                                <i class="lni-emoji-smile base-color"></i>
+                            </div>
+                            <div class="my-3">
+                                <span class="timer count-number" [CountTo]="clientesFelices.countTo" [from]="clientesFelices.from" [duration]="clientesFelices.duration"></span>
+                            </div>
+                            <p class="mb-0">Clientes Felices</p>
+                        </div>
+
+                        <div class="col-6 col-lg-3 my-3 count-item ">
+                            <div class="count-icon">
+                                <i class="lni lni-dashboard base-color"></i>
+                            </div>
+                            <div class="my-3">
+                                <span class="timer count-number" [CountTo]="visitas.countTo" [from]="visitas.from" [duration]="visitas.duration"></span>                                    
+                            </div>
+                            <p class="mb-0">Visitas</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="button-border mt-3 mb-lg-0 to-contact">
-                    <a href="#contact" class="pill-button">Contacto</a>
+
+
+                <div class="services">
+                    <div class="row mt-5 ">
+                        <div class="col-12">
+                            <h3 class="mb-0 text-dark">Con qué <span class="base-color">Trabajo</span></h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 text-left">
+                            <div class="services-item box-hover-border">
+                                <div class="float-left mt-lg-1 d-inline-block services-icon">
+                                    <i class="lni-brush-alt size-md base-color"></i>
+                                </div>
+                                <div class="services-content">
+                                    <h5 class="mb-3">Design</h5>
+                                    <p class="text-muted mb-0">Adobe XD</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-left">
+                            <div class="services-item box-hover-border">
+                                <div class="float-left mt-lg-1 d-inline-block services-icon">
+                                    <i class="lni lni-bootstrap size-md base-color"></i>
+                                </div>
+                                <div class="services-content">
+                                    <h5 class="mb-3">Responsive Theme</h5>
+                                    <p class="text-muted mb-0">Bootstrap 4.X</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-left">
+                            <div class="services-item box-hover-border">
+                                <div class="float-left mt-lg-1 d-inline-block services-icon">
+                                    <i class="lni lni-cloud size-md base-color"></i>
+                                </div>
+                                <div class="services-content">
+                                    <h5 class="mb-3">Cloud Platforms</h5>
+                                    <p class="text-muted mb-0">Firebase</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-left">
+                            <div class="services-item box-hover-border">
+                                <div class="float-left mt-lg-1  d-inline-block services-icon">
+                                    <i class="lni-mobile size-md base-color"></i>
+                                </div>
+                                <div class="services-content">
+                                    <h5 class="mb-2">Cross Platform Development</h5>
+                                    <p class="text-muted mb-0">Ionic / Xamarin</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-left">
+                            <div class="services-item box-hover-border">
+                                <div class="float-left mt-lg-1 d-inline-block services-icon">
+                                    <i class="lni lni-layers size-md base-color"></i>
+                                </div>
+                                <div class="services-content">
+                                    <h5 class="mb-3">Frameworks Web</h5>
+                                    <p class="text-muted mb-0">Dot NET Core / ASP .NET / Blazor / Angular</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-left">
+                            <div class="services-item box-hover-border">
+                                <div class="float-left mt-lg-1 d-inline-block services-icon">
+                                    <i class="lni lni-cog size-md base-color"></i>
+                                </div>
+                                <div class="services-content">
+                                    <h5 class="mb-5">DevOps Services</h5>
+                                    <p class="text-muted mb-0">Azure DevOps / Git</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+                
+
+                <!-- <div class="testimonial mt-5">
+                    <div class="col-12">
+                        <h3 class="mb-0 text-dark">Client <span class="base-color">Says</span></h3>
+                    </div>
+                    <div class="owl-carousel">
+
+                        <div class="testimonial-item box-border">
+                            <div class="testimonial-image">
+                                <div class="testimonial-image-border">
+                                    <img src="http://placehold.it/300x300" alt="/">
+                                </div>
+                            </div>
+                            <p class="mb-0 mt-2 text-muted">" In a professional context it often that private or corporate clients publication to be made.In a professional context it often happens that private."</p>
+                            <span class="d-block mt-3 font-weight-bold mr-2">John Doe,<small class="text-muted"> CEO Management</small></span>
+                        </div>
+
+                        <div class="testimonial-item box-border">
+                            <div class="testimonial-image">
+                                <div class="testimonial-image-border">
+                                    <img src="http://placehold.it/300x300" alt="/">
+                                </div>
+                            </div>
+                            <p class="mb-0 mt-2 text-muted">" In a professional context it often that private or corporate clients publication to be made.In a professional context it often happens that private."</p>
+                            <span class="d-block mt-3 font-weight-bold mr-2">Mary Jane, <small class="text-muted">Marketing Head</small></span>
+                        </div>
+
+                        <div class="testimonial-item box-border">
+                            <div class="testimonial-image">
+                                <div class="testimonial-image-border">
+                                    <img src="http://placehold.it/300x300" alt="/">
+                                </div>
+                            </div>
+                            <p class="mb-0 mt-2 text-muted">" In a professional context it often that private or corporate clients publication to be made.In a professional context it often happens that private."</p>
+                            <span class="d-block mt-3 font-weight-bold mr-2">Jully Doe, <small class="text-muted">Design Strategist</small></span>
+                        </div>
+
+                        <div class="testimonial-item box-border">
+                            <div class="testimonial-image">
+                                <div class="testimonial-image-border">
+                                    <img src="http://placehold.it/300x300" alt="/">
+                                </div>
+                            </div>
+                            <p class="mb-0 mt-2 text-muted">" In a professional context it often that private or corporate clients publication to be made.In a professional context it often happens that private."</p>
+                            <span class="d-block mt-3 font-weight-bold mr-2">John Doe, <small class="text-muted">CEO Management</small></span>
+                        </div>
+                    </div>
+                </div> -->
+
             </div>
         </div>
     </div>

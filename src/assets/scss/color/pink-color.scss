@@ -74,15 +74,6 @@ header .navbar-brand b ,
 {
     border: 1px solid $pink-color;
 }
-.header nav .nav-pills a.active {
-    color: $pink-color!important;
-}
-.header nav a:hover {
-    color: $pink-color!important;
-  }
-.testimonial .testimonial-item::before {
-    color: $pink-color;
-}
 
 /*-------------------------
       Flat Demo
@@ -96,9 +87,6 @@ header .navbar-brand b ,
 
 .arshia-dark{
     .hero-social li a:hover{
-        color: $pink-color-hover !important;
-    }
-    .header nav a:hover {
         color: $pink-color-hover !important;
     }
 }

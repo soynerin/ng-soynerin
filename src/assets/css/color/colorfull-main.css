@@ -62,7 +62,7 @@
   color: #1b63ad;
 }
 
-.flat-demo .box-border {
+.flat-demo header, .flat-demo .box-border {
   background-color: #fefefe !important;
   box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1) !important;
 }
@@ -73,6 +73,11 @@
 
 .flat-demo .portfolio .portfolio-item-content {
   box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1) !important;
+}
+
+.flat-demo.arshia-dark header {
+  background-color: #2c2d30 !important;
+  box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e !important;
 }
 
 .flat-demo.arshia-dark .box-border {

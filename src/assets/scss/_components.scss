@@ -7,7 +7,6 @@
 body{
     font-family: $muli;
     font-weight: $font-weight-light;
-    background-color: map-get($map: $bg-colors, $key: bg-light);
 }
 .full-screen {
     height:100vh;
@@ -50,9 +49,6 @@ h1, h2, h3, h4, h5, h6, .h1{
 }
 h2,h2 span{
     font-weight: $font-weight-bolder;
-}
-.pt-6{
-    padding-top: 100px;
 }
 .max-width-450 {
     max-width: 450px;

@@ -82,18 +82,6 @@ header .navbar-brand b,
   border: 1px solid #0cc0de;
 }
 
-.header nav .nav-pills a.active {
-  color: #0cc0de !important;
-}
-
-.header nav a:hover {
-  color: #0cc0de !important;
-}
-
-.testimonial .testimonial-item::before {
-  color: #0cc0de;
-}
-
 /*-------------------------
       Flat Demo
 -------------------------*/
@@ -106,10 +94,6 @@ header .navbar-brand b,
 }
 
 .arshia-dark .hero-social li a:hover {
-  color: #0cacc9 !important;
-}
-
-.arshia-dark .header nav a:hover {
   color: #0cacc9 !important;
 }
 /*# sourceMappingURL=sky-blue-color.css.map */

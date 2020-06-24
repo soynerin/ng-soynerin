@@ -5,13 +5,14 @@
       Flat Demo Light
 -------------------------*/
 .flat-demo{
-    background-color: map-get($map: $bg-colors, $key:  secondary-bg-light);
-    
+    #main > section{
+        background-color: map-get($map: $bg-colors, $key:  secondary-bg-light);
+    }
     .blog-single .modal-content, .portfolio-single .modal-content
     {
         background-color: map-get($map: $bg-colors, $key: secondary-bg-light);
     }
-    .header-sticky{
+    header{
         background-color: map-get($map: $bg-colors, $key: bg-lighter);
     }
     .testimonial-image-border{
@@ -54,14 +55,8 @@
         padding: 0;
     }
     .box-border, .box-hover-border, .contact .form-item .form-group {
-        // background-color: map-get($map: $rgb, $key: light);
-        // box-shadow: none;
-        background-color: #fefefe;
-        box-shadow: 3px 3px 8px 0px rgba(145, 145, 145, 0.1) !important;
-        
-    }
-    .services .box-border, .blog .box-border{
-        box-shadow: 0px 0px 16px rgba(145,145,145,.2) !important;
+        background-color: map-get($map: $rgb, $key: light);
+        box-shadow: none;
     }
     .testimonial .owl-carousel .testimonial-image::after, .testimonial .owl-carousel .testimonial-image::before,
     .blog-item::before, .blog-image::after
@@ -74,22 +69,23 @@
     .portfolio-filter .pill-button{
         color: map-get($map: $colors, $key: secondary-dark);
     }
-    // .blog-image{
-    //     background-color: map-get($map: $bg-colors, $key: secondary-bg-light);
-    //     padding: 0;
-    // }
+    .blog-image{
+        background-color: map-get($map: $bg-colors, $key: secondary-bg-light);
+        padding: 0;
+    }
 }
 
 /*-------------------------
       Flat Demo Dark
 -------------------------*/
 .arshia-dark.flat-demo{
-    background-color: map-get($map: $bg-colors, $key:  third-bg-dark);
-  
+    #main > section{
+        background-color: map-get($map: $bg-colors, $key:  third-bg-dark);
+    }
     .box-hover-border:hover{
         box-shadow: none;
     }
-    .header-sticky, .testimonial-image-border,.blog-single .modal-content, .portfolio-single .modal-content{
+    header, .testimonial-image-border, .blog-image, .blog-single .modal-content, .portfolio-single .modal-content{
         background-color: map-get($map: $bg-colors, $key: bg-dark);
     }
     .testimonial-image-border{
@@ -99,7 +95,6 @@
     }
     .box-border, .box-hover-border, .contact .form-item .form-group{
         background-color: map-get($map: $rgb, $key:  dark);
-        box-shadow: 0px 0px 2px rgba(79, 79, 79, 0.2) !important;
     }
     .box-hover-border:hover{
         box-shadow: none;

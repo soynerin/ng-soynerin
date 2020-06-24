@@ -55,6 +55,16 @@ header ul {
   padding: 0;
 }
 
+.hero-01 {
+  background: url("http://placehold.it/1920x1280") no-repeat;
+  background-size: cover;
+}
+
+.hero-06 .square {
+  right: -10px;
+  left: inherit;
+}
+
 .hero-social .list-inline-item:not(:last-child) {
   margin-right: inherit;
   margin-left: 1.5rem;

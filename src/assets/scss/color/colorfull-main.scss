@@ -58,7 +58,7 @@
 }
 
 .flat-demo{
-    .box-border{
+    header, .box-border{
         background-color: $bg-light !important;
       box-shadow: $box-shadow !important;
     }
@@ -72,6 +72,10 @@
     }
 }
 .flat-demo.arshia-dark{
+    header{
+        background-color: $bg-dark!important;
+        box-shadow: 3px 3px 3px #202125, -3px -3px 3px #3e3e3e !important;
+    }
     .box-border{
         background-color: $box-color !important;
         box-shadow: $box-shadow-dark !important;
