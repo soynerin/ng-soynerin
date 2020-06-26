@@ -1,13 +1,13 @@
 <header>
     <div class="header-navbar h-100">
         <a class="navbar-brand" href="#"><b>N</b><span>Nerin</span></a>
-        <ul class="list-group menu text-center" id="menu">
-            <li class="list-group-item"><a href="#hero"><i class="fa fa-home"></i><span>Inicio</span></a></li>
-            <li class="list-group-item"><a href="#about"><i class="fa fa-user"></i><span>Acerca</span></a></li>
-            <li class="list-group-item"><a href="#resume"><i class="fa fa-address-book"></i><span>Resumen</span></a></li>
-            <li class="list-group-item"><a href="#portfolio"><i class="fa fa-briefcase"></i><span>Proyectos</span></a></li>
+        <ul class="list-group menu text-center" id="menu">            
+            <li class="list-group-item"><a [routerLink]="['/hero']" [routerLinkActive]="['active']"><i class="fa fa-home"></i><span>Inicio</span></a></li>
+            <li class="list-group-item"><a [routerLink]="['/about']" [routerLinkActive]="['active']"><i class="fa fa-user"></i><span>Acerca</span></a></li>
+            <li class="list-group-item"><a [routerLink]="['/resume']" [routerLinkActive]="['active']"><i class="fa fa-address-book"></i><span>Resumen</span></a></li>
+            <li class="list-group-item"><a [routerLink]="['/works']" [routerLinkActive]="['active']"><i class="fa fa-briefcase"></i><span>Proyectos</span></a></li>
             <!-- <li class="list-group-item"><a href="#blog"><i class="fa fa-file-text"></i><span>Blog</span></a></li> -->
-            <li class="list-group-item"><a href="#contact"><i class="fa fa-envelope-open"></i><span>Contacto</span></a></li>
+            <li class="list-group-item"><a [routerLink]="['/contact']" [routerLinkActive]="['active']"><i class="fa fa-envelope-open"></i><span>Contacto</span></a></li>
         </ul>
         <div class="menu-toggler">
             <span>
