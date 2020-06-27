@@ -18,7 +18,7 @@ $(document).ready(function () {
     ColorPallet();
     PillMenuToggler();
     menuToggler();
-    // typedJS();
+    typedJS();
     skills();
     // countUp();
     portfolioPopup();
@@ -171,14 +171,19 @@ function typedJS() {
 
     "use strict";
 
-    var options = {
-        strings: $(".element").attr('data-elements').split(','),
-        typeSpeed: 100,
-        backDelay: 3000,
-        backSpeed: 50,
-        loop: true
-    };
-    var typed = new Typed(".element", options);
+    if ($(".element").attr('data-elements')) {
+        
+        var options = {
+            strings: $(".element").attr('data-elements').split(','),
+            typeSpeed: 100,
+            backDelay: 3000,
+            backSpeed: 50,
+            loop: true
+        };
+        
+        var typed = new Typed(".element", options);
+    }
+
 }
 /*-------------------------
           Skills

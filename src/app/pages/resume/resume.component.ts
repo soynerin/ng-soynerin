@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare function skills(): any;
 
 @Component({
   selector: 'app-resume',
@@ -10,6 +11,7 @@ export class ResumeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    skills();
   }
 
 }
