@@ -8,11 +8,11 @@ import { ContactComponent } from './pages/contact/contact.component';
 
 
 const routes: Routes = [
-  { path: 'hero', component: HeroComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'resume', component: ResumeComponent },
-  { path: 'works', component: PortfolioComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'hero', component: HeroComponent, data: {animation: 'Hero'} },
+  { path: 'about', component: AboutComponent, data: {animation: 'About'} },
+  { path: 'resume', component: ResumeComponent, data: {animation: 'Resume'} },
+  { path: 'works', component: PortfolioComponent, data: {animation: 'Portfolio'} },
+  { path: 'contact', component: ContactComponent, data: {animation: 'Contact'} },
   { path: '**', pathMatch: 'full', redirectTo: 'hero' }
 ];
 
