@@ -17,6 +17,7 @@ import { TestimonialComponent } from './pages/testimonial/testimonial.component'
 import { BlogComponent } from './pages/blog/blog.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SkillsComponent } from './pages/skills/skills.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SkillsComponent } from './pages/skills/skills.component';
     TestimonialComponent,
     BlogComponent,
     ContactComponent,
-    SkillsComponent
+    SkillsComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

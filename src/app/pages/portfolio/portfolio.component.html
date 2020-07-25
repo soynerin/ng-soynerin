@@ -1,4 +1,5 @@
-<section id="portfolio" class="portfolio" style="height: 100vh;">
+
+<section id="portfolio" class="portfolio" style="height: 100vh;">    
     <div class="display-table">
         <div class="display-content">
             <div class="container">
@@ -30,10 +31,10 @@
                         </li> -->
                     </ul>
                 </div>
-                <div class="portfolio-items row">
-
+                <div class="portfolio-items row">                                        
                     <div class="col-lg-4 portfolio-item webdesign">
                         <div class="image-border">
+                            <app-loading *ngIf="isLoading"></app-loading>
                             <div class="portfolio-item-content">
                                 <img src="assets/img/alestilodemerex-preview.jpg" alt="soynerin nerin alestilodemerex" class="img-fluid">
                                 <div class="img-overlay text-center">
