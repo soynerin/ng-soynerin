@@ -16,7 +16,6 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { TestimonialComponent } from './pages/testimonial/testimonial.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { SkillsComponent } from './pages/skills/skills.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
@@ -33,7 +32,6 @@ import { LoadingComponent } from './shared/loading/loading.component';
     TestimonialComponent,
     BlogComponent,
     ContactComponent,
-    SkillsComponent,
     LoadingComponent
   ],
   imports: [
