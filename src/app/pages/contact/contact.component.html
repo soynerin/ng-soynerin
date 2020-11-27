@@ -76,19 +76,18 @@
                         </div>
                         <div class="col-12 form-item">
                             <div class="form-group">
-                                <textarea name="comments" id="comments" rows="4" class="form-control"
+                                <textarea name="message" id="comments" rows="4" class="form-control"
                                     placeholder="Tu mensaje o consulta..."></textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 mt-4 text-left">
+                            <div data-netlify-recaptcha="true"></div>
                             <div class="button-border">
-                                <a href="javascript:void(0)" class="pill-button" id="submit-btn"
-                                    onclick="sendEmail()">Enviar</a>
+                                <button type="submit" class="pill-button" id="submit-btn">Enviar</button>
                             </div>
                             <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
                                 data-delay="4000">
                                 <div class="toast-body d-inline-block"></div>
-                                <div data-netlify-recaptcha="true"></div>
                                 <button type="button" class="pr-3 close" data-dismiss="toast" aria-label="Close">
                                     <span aria-hidden="true" class="lni-close size-xs "></span>
                                 </button>
