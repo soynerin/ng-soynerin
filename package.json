@@ -21,9 +21,15 @@
     "@angular/router": "~9.0.5",
     "angular-count-to": "0.0.3",
     "countapi-js": "^1.0.1",
+    "elliptic": "^6.5.4",
+    "ini": "^2.0.0",
+    "is-svg": "^4.3.1",
     "moment": "^2.27.0",
     "rxjs": "~6.5.4",
+    "socket.io": "^4.0.1",
+    "ssri": "^8.0.1",
     "tslib": "^1.10.0",
+    "y18n": "^5.0.8",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
