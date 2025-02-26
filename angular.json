@@ -113,7 +113,6 @@
       }
     }
   },
-  "defaultProject": "ng-soynerin",
   "cli": {
     "analytics": false
   }
