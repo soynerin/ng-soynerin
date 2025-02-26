@@ -39,7 +39,7 @@
     "@angular/language-service": "^19.1.7",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^22.13.5",
     "angular-eslint": "19.1.0",
     "eslint": "^9.20.0",
     "eslint-plugin-import": "^2.31.0",
