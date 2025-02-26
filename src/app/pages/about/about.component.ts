@@ -16,13 +16,13 @@ export class AboutComponent implements OnInit {
   };
   tazasDeCafe: any;
   proyectosTerminados: any;
-  clientesFelices: any;  
+  clientesFelices: any;
 
-  constructor() { 
+  constructor() {
     // this.contadorVisitas();
     this.contadorTazasCafe();
     this.contadorProyectosTerminados();
-    this.contadorClientesFelices();    
+    this.contadorClientesFelices();
   }
 
   ngOnInit(): void {
@@ -68,6 +68,6 @@ export class AboutComponent implements OnInit {
       from: 0,
       duration: 5
     };
-  }  
+  }
 
 }

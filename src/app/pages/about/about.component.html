@@ -63,7 +63,7 @@
                                 <i class="lni-pencil-alt base-color"></i>
                             </div>
                             <div class="my-3">
-                                <span class="timer count-number" [CountTo]="proyectosTerminados.countTo" [from]="proyectosTerminados.from" [duration]="proyectosTerminados.duration"></span>                                    
+                                <span class="timer count-number" [countUp]="proyectosTerminados.countTo">0</span>
                             </div>
                             <p class="mb-0">Proyectos Terminados</p>
                         </div>
@@ -73,7 +73,7 @@
                                 <i class="lni lni-coffee-cup base-color"></i>
                             </div>
                             <div class="my-3">
-                                <span class="timer count-number" [CountTo]="tazasDeCafe.countTo" [from]="tazasDeCafe.from" [duration]="tazasDeCafe.duration"></span>
+                                <span class="timer count-number" [countUp]="tazasDeCafe.countTo">0</span>
                             </div>
                             <p class="mb-0">Tazas de Café</p>
                         </div>
@@ -83,7 +83,7 @@
                                 <i class="lni-emoji-smile base-color"></i>
                             </div>
                             <div class="my-3">
-                                <span class="timer count-number" [CountTo]="clientesFelices.countTo" [from]="clientesFelices.from" [duration]="clientesFelices.duration"></span>
+                                <span class="timer count-number" [countUp]="clientesFelices.countTo">0</span>
                             </div>
                             <p class="mb-0">Clientes Felices</p>
                         </div>
@@ -93,7 +93,8 @@
                                 <i class="lni lni-dashboard base-color"></i>
                             </div>
                             <div class="my-3">
-                                <span class="timer count-number" [CountTo]="visitas.countTo" [from]="visitas.from" [duration]="visitas.duration"></span>                                    
+                                <!-- <span class="timer count-number" [CountTo]="visitas.countTo" [from]="visitas.from" [duration]="visitas.duration"></span> -->
+                                <span class="timer count-number">0</span>
                             </div>
                             <p class="mb-0">Visitas</p>
                         </div>
@@ -177,7 +178,7 @@
                     </div>
 
                 </div>
-                
+
 
                 <!-- <div class="testimonial mt-5">
                     <div class="col-12">

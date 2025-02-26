@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { CountToModule } from 'angular-count-to';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CountUpModule } from 'ngx-countup';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -37,8 +37,8 @@ import { LoadingComponent } from './shared/loading/loading.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CountToModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CountUpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
