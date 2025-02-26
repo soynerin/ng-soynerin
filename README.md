@@ -1,27 +1,50 @@
 # NgSoynerin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- [Angular CLI](https://angular.io/cli) (`npm install -g @angular/cli`)
 
-## Code scaffolding
+## Development Server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng serve` to start the development server. Navigate to `http://localhost:4200/`. The app will automatically reload if you modify any source files.
+
+## Code Scaffolding
+
+Use Angular CLI to generate components, services, directives, and more:
+```sh
+ng generate component component-name
+ng generate service service-name
+ng generate module module-name
+```
+For a full list of available commands, run `ng generate --help`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to create a production-ready build. The output will be stored in the `dist/` directory.
+```sh
+ng build --configuration=production
+```
 
-## Running unit tests
+## Running Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Unit Tests
+Run `ng test` to execute unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### End-to-End Tests
+Run `ng e2e` to execute E2E tests via [Cypress](https://www.cypress.io/) (if configured).
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Linting & Formatting
+Ensure code quality with linting and formatting tools:
+```sh
+ng lint
+npm run prettier
+```
 
-## Further help
+## Further Help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For more information, visit the [Angular CLI Documentation](https://angular.io/cli) or use `ng help` in the terminal.
+
