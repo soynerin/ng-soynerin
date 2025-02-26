@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-soynerin:build"
+            "buildTarget": "ng-soynerin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-soynerin:build:production"
+              "buildTarget": "ng-soynerin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-soynerin:build"
+            "buildTarget": "ng-soynerin:build"
           }
         },
         "test": {
