@@ -78,6 +78,7 @@
                   class="form-control"
                   placeholder="Tu nombre*"
                   required
+                  [(ngModel)]="name"
                 />
               </div>
             </div>
@@ -90,6 +91,7 @@
                   class="form-control"
                   placeholder="Tu correo electrónico*"
                   required
+                  [(ngModel)]="from"
                 />
               </div>
             </div>
@@ -102,6 +104,7 @@
                   class="form-control"
                   placeholder="Asunto*"
                   required
+                  [(ngModel)]="subject"
                 />
               </div>
             </div>
@@ -113,13 +116,14 @@
                   rows="4"
                   class="form-control"
                   placeholder="Tu mensaje o consulta..."
+                  [(ngModel)]="text"
                 ></textarea>
               </div>
             </div>
             <div class="col-sm-12 mt-4 text-left">
               <div data-netlify-recaptcha="true"></div>
               <div class="button-border">
-                <button type="submit" class="pill-button" id="submit-btn">
+                <button (click)="sendEmail()" class="pill-button" id="submit-btn">
                   Enviar
                 </button>
               </div>
