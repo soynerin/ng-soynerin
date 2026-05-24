@@ -1,19 +1,127 @@
-<!-- <app-social-box></app-social-box> -->
+<!--   Menu Overlay Mobile -->
+<div class="menu-overlay d-none"></div>
+
+<!--   Right Side Start  -->
+<div class="right-side d-none d-lg-block">
+    <div id="date"></div>
+    <div class="social-box">
+        <div class="follow-label">
+            <span>Seguirme</span>
+        </div>
+        <div class="social d-none d-lg-block">
+            <a
+                href="https://github.com/soynerin"
+                target="_blank"
+                rel="noreferrer"
+            >
+                <i class="bi bi-github"></i>
+            </a>
+            <a
+                href="https://www.linkedin.com/in/neri-espinola/"
+                target="_blank"
+                rel="noreferrer"
+            >
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <a
+                href="https://www.facebook.com/iNeriX"
+                target="_blank"
+                rel="noreferrer"
+            >
+                <i class="bi bi-facebook"></i>
+            </a>
+        </div>
+    </div>
+    <div class="next-prev-page">
+        <button type="button" class="prev-page bg-base-color hstack">
+            <i class="bi bi-chevron-compact-up mx-auto"></i>
+        </button>
+        <button type="button" class="next-page bg-base-color mt-3 hstack">
+            <i class="bi bi-chevron-compact-down mx-auto"></i>
+        </button>
+    </div>
+</div>
+<!--  Right Side End  -->
+
+<!--  Left Side (Sidebar) -->
 <app-header></app-header>
 
-<div [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']">
-    <router-outlet #o="outlet"></router-outlet>
+<!--  Main Start  -->
+<main id="main" class="main-2">
+    <!--  Hero  -->
+    <section id="hero" class="section hero w-100 active">
+        <app-hero></app-hero>
+    </section>
+
+    <!--  About  -->
+    <section id="about" class="section about">
+        <app-about></app-about>
+    </section>
+
+    <!--  Resume  -->
+    <section id="resume" class="section">
+        <app-resume></app-resume>
+    </section>
+
+    <!--  Portfolio  -->
+    <section id="portfolio" class="section portfolio">
+        <app-portfolio></app-portfolio>
+    </section>
+
+    <!--  Blog  -->
+    <section id="blog" class="section blog">
+        <app-blog></app-blog>
+    </section>
+
+    <!--  Contact  -->
+    <section id="contact" class="section contact w-100">
+        <app-contact></app-contact>
+    </section>
+</main>
+<!--  Main End  -->
+
+<!-- Portfolio Overlay (fuera de #main para evitar stacking context de opacity) -->
+<app-portfolio-overlay></app-portfolio-overlay>
+<!-- Blog Overlay -->
+<app-blog-overlay></app-blog-overlay>
+
+<!--  Mobile Next and Prev Button Start -->
+<div class="next-prev-page d-block d-lg-none">
+    <button type="button" class="prev-page bg-base-color hstack">
+        <i class="bi bi-chevron-compact-left mx-auto"></i>
+    </button>
+    <button type="button" class="next-page bg-base-color mt-1 mt-lg-3 hstack">
+        <i class="bi bi-chevron-compact-right mx-auto"></i>
+    </button>
 </div>
+<!--  Mobile Next and Prev Button End -->
 
-<!-- <app-hero></app-hero> -->
-<!-- <app-about></app-about> -->
-<!-- <app-resume></app-resume> -->
-<!-- <app-skills></app-skills> -->
-<!-- <app-services></app-services> -->
-<!-- <app-portfolio></app-portfolio> -->
-<!-- <app-blog></app-blog> -->
-<!-- <app-contact></app-contact> -->
+<!--  Navbar Button Mobile Start -->
+<div class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<!--  Navbar Button Mobile End -->
 
+<!--  Background Shapes Start  -->
+<div class="area">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<!--  Background Shapes End  -->
 
-<a class="color-scheme hide text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-sun"></i></a>
-<a class="color-scheme hide color-scheme-light text-white bg-base-color d-none" href="javascript:void(0)"><i class="lni-night"></i></a>
+<!-- Magic Cursor Start -->
+<div class="m-magic-cursor mmc-outer"></div>
+<div class="m-magic-cursor mmc-inner"></div>
+<!-- Magic Cursor End -->

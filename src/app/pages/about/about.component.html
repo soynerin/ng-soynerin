@@ -1,234 +1,391 @@
-<section id="about" class="about">
-    <div class="display-table">
-        <div class="display-content">
-            <div class="container">
+﻿<div class="container">
+    <!-- Introduccion -->
+    <div class="about-boxes">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="about-img">
+                    <img src="assets/img/hero-image.jpg" alt="Neri Espinola" />
+                    <div class="border-img"></div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="about-description">
+                    <h3 class="mb-3">
+                        Una breve historia sobre mi, mi mision, mi forma de
+                        pensar y mi trabajo.
+                    </h3>
+                    <p class="about-text">
+                        Soy un desarrollador web apasionado por crear
+                        experiencias digitales atractivas y funcionales. Me
+                        especializo en el desarrollo frontend con Angular,
+                        combinando diseño industrial y tecnologia para ofrecer
+                        productos de alta calidad centrados en el usuario.
+                    </p>
+                </div>
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center title">
-                            <h2 class="text-dark">Acerca <span class="base-color">de Mí</span></h2>
-                            <p class="text-muted max-width-450 mb-5"></p>
-                        </div>
+                    <div class="col-lg-6">
+                        <ul class="list-unstyled personal-info">
+                            <li>Telefono : <small>+54 11 68573664</small></li>
+                            <li>
+                                Ciudad : <small>Buenos Aires, Argentina</small>
+                            </li>
+                            <li>
+                                Nacimiento : <small>9 de mayo de 1989</small>
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-lg-6">
-                        <div class="image-border">
-                            <img src="assets/img/about.jpg" alt="soynerin nerin neri espinola foto personal">
-                        </div>
+                        <ul class="list-unstyled personal-info">
+                            <li>
+                                Edad : <small>{{ edad }}</small>
+                            </li>
+                            <li>Titulo : <small>Tecnico Superior</small></li>
+                            <li>
+                                Correo :
+                                <small>neri.agustin.es&#64;outlook.com</small>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-lg-6 mt-4 mt-lg-0">
-                        <div class="personal-item ">
-                            <h3 class="text-dark mt-4 mt-lg-0"><span class="base-color">UI/UX</span> Designer & Web Developer</h3>
-                            <div class="row">
-                                <div class="col-6 personal-info">
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <p>Cumpleaños : <span> 9 de mayo de 1989</span></p>
-                                        </li>
-                                        <li>
-                                            <p>Contacto : <span> +54 11 68573664</span></p>
-                                        </li>
-                                        <li>
-                                            <p>Ciudad : <span> Buenos Aires, Arg</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 personal-info">
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <p>Edad : <span> {{ edad }}</span></p>
-                                        </li>
-                                        <li>
-                                            <p>Título : <span> Técnico</span></p>
-                                        </li>
-                                        <li>
-                                            <p>Correo : <span> neri.agustin.es&#64;outlook</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button-border mt-3 mb-lg-0 mr-4">
-                            <a href="assets/documents/EspinolaNeriAgustin.docx" class="pill-button">Descargar CV</a>
-                        </div>
-                        <div class="button-border mt-3 mb-lg-0 to-contact">
-                            <a [routerLink]="['/contact']" class="pill-button">Contacto</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="count-up" class="count-up text-center box-border">
-                    <div class="row">
-
-                        <div class="col-6 col-lg-3 my-3 count-item ">
-                            <div class="count-icon">
-                                <i class="lni-pencil-alt base-color"></i>
-                            </div>
-                            <div class="my-3">
-                                <span class="timer count-number" [countUp]="proyectosTerminados.countTo">0</span>
-                            </div>
-                            <p class="mb-0">Proyectos Terminados</p>
-                        </div>
-
-                        <div class="col-6 col-lg-3 my-3 count-item ">
-                            <div class="count-icon">
-                                <i class="lni lni-coffee-cup base-color"></i>
-                            </div>
-                            <div class="my-3">
-                                <span class="timer count-number" [countUp]="tazasDeCafe.countTo">0</span>
-                            </div>
-                            <p class="mb-0">Tazas de Café</p>
-                        </div>
-
-                        <div class="col-6 col-lg-3 my-3 count-item ">
-                            <div class="count-icon">
-                                <i class="lni-emoji-smile base-color"></i>
-                            </div>
-                            <div class="my-3">
-                                <span class="timer count-number" [countUp]="clientesFelices.countTo">0</span>
-                            </div>
-                            <p class="mb-0">Clientes Felices</p>
-                        </div>
-
-                        <div class="col-6 col-lg-3 my-3 count-item ">
-                            <div class="count-icon">
-                                <i class="lni lni-dashboard base-color"></i>
-                            </div>
-                            <div class="my-3">
-                                <!-- <span class="timer count-number" [CountTo]="visitas.countTo" [from]="visitas.from" [duration]="visitas.duration"></span> -->
-                                <span class="timer count-number">0</span>
-                            </div>
-                            <p class="mb-0">Visitas</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="services">
-                    <div class="row mt-5 ">
-                        <div class="col-12">
-                            <h3 class="mb-0 text-dark">Con qué <span class="base-color">Trabajo</span></h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 text-left">
-                            <div class="services-item box-hover-border">
-                                <div class="float-left mt-lg-1 d-inline-block services-icon">
-                                    <i class="lni-brush-alt size-md base-color"></i>
-                                </div>
-                                <div class="services-content">
-                                    <h5 class="mb-3">Design</h5>
-                                    <p class="text-muted mb-0">Figma</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 text-left">
-                            <div class="services-item box-hover-border">
-                                <div class="float-left mt-lg-1 d-inline-block services-icon">
-                                    <i class="lni lni-bootstrap size-md base-color"></i>
-                                </div>
-                                <div class="services-content">
-                                    <h5 class="mb-3">Design Theme</h5>
-                                    <p class="text-muted mb-0">Bootstrap & Prime</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 text-left">
-                            <div class="services-item box-hover-border">
-                                <div class="float-left mt-lg-1 d-inline-block services-icon">
-                                    <i class="lni lni-cloud size-md base-color"></i>
-                                </div>
-                                <div class="services-content">
-                                    <h5 class="mb-3">Cloud Platforms</h5>
-                                    <p class="text-muted mb-0">Vercel - Railway</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 text-left">
-                            <div class="services-item box-hover-border">
-                                <div class="float-left mt-lg-1  d-inline-block services-icon">
-                                    <i class="lni-mobile size-md base-color"></i>
-                                </div>
-                                <div class="services-content">
-                                    <h5 class="mb-2">Cross Platform Development</h5>
-                                    <p class="text-muted mb-0">React Native (Expo)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 text-left">
-                            <div class="services-item box-hover-border">
-                                <div class="float-left mt-lg-1 d-inline-block services-icon">
-                                    <i class="lni lni-layers size-md base-color"></i>
-                                </div>
-                                <div class="services-content">
-                                    <h5 class="mb-3">Frameworks Web</h5>
-                                    <p class="text-muted mb-0">React - Angular</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 text-left">
-                            <div class="services-item box-hover-border">
-                                <div class="float-left mt-lg-1 d-inline-block services-icon">
-                                    <i class="lni lni-cog size-md base-color"></i>
-                                </div>
-                                <div class="services-content">
-                                    <h5 class="mb-5">DevOps Services</h5>
-                                    <p class="text-muted mb-0">Azure DevOps / Git / Vercel</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <!-- <div class="testimonial mt-5">
                     <div class="col-12">
-                        <h3 class="mb-0 text-dark">Client <span class="base-color">Says</span></h3>
+                        <a
+                            href="#contact"
+                            class="to-contact primary-button mt-2"
+                            >Contactame</a
+                        >
                     </div>
-                    <div class="owl-carousel">
-
-                        <div class="testimonial-item box-border">
-                            <div class="testimonial-image">
-                                <div class="testimonial-image-border">
-                                    <img src="http://placehold.it/300x300" alt="/">
-                                </div>
-                            </div>
-                            <p class="mb-0 mt-2 text-muted">" In a professional context it often that private or corporate clients publication to be made.In a professional context it often happens that private."</p>
-                            <span class="d-block mt-3 font-weight-bold mr-2">John Doe,<small class="text-muted"> CEO Management</small></span>
-                        </div>
-
-                        <div class="testimonial-item box-border">
-                            <div class="testimonial-image">
-                                <div class="testimonial-image-border">
-                                    <img src="http://placehold.it/300x300" alt="/">
-                                </div>
-                            </div>
-                            <p class="mb-0 mt-2 text-muted">" In a professional context it often that private or corporate clients publication to be made.In a professional context it often happens that private."</p>
-                            <span class="d-block mt-3 font-weight-bold mr-2">Mary Jane, <small class="text-muted">Marketing Head</small></span>
-                        </div>
-
-                        <div class="testimonial-item box-border">
-                            <div class="testimonial-image">
-                                <div class="testimonial-image-border">
-                                    <img src="http://placehold.it/300x300" alt="/">
-                                </div>
-                            </div>
-                            <p class="mb-0 mt-2 text-muted">" In a professional context it often that private or corporate clients publication to be made.In a professional context it often happens that private."</p>
-                            <span class="d-block mt-3 font-weight-bold mr-2">Jully Doe, <small class="text-muted">Design Strategist</small></span>
-                        </div>
-
-                        <div class="testimonial-item box-border">
-                            <div class="testimonial-image">
-                                <div class="testimonial-image-border">
-                                    <img src="http://placehold.it/300x300" alt="/">
-                                </div>
-                            </div>
-                            <p class="mb-0 mt-2 text-muted">" In a professional context it often that private or corporate clients publication to be made.In a professional context it often happens that private."</p>
-                            <span class="d-block mt-3 font-weight-bold mr-2">John Doe, <small class="text-muted">CEO Management</small></span>
-                        </div>
-                    </div>
-                </div> -->
-
+                </div>
             </div>
         </div>
     </div>
-</section>
+
+    <!-- Count Up -->
+    <div id="count-up" class="count-up text-center box-border">
+        <div class="row">
+            <div class="col-6 col-lg-3 my-4 count-item">
+                <div class="count-icon"><i class="bi bi-code-slash"></i></div>
+                <span
+                    class="timer count-number"
+                    [countUp]="proyectosTerminados.countTo"
+                    >0</span
+                >
+                <p class="mb-0">Proyectos Terminados</p>
+            </div>
+            <div class="col-6 col-lg-3 my-4 count-item">
+                <div class="count-icon"><i class="bi bi-cup-fill"></i></div>
+                <span class="timer count-number" [countUp]="tazasDeCafe.countTo"
+                    >0</span
+                >
+                <p class="mb-0">Tazas de Cafe</p>
+            </div>
+            <div class="col-6 col-lg-3 my-4 count-item">
+                <div class="count-icon"><i class="bi bi-emoji-smile"></i></div>
+                <span
+                    class="timer count-number"
+                    [countUp]="clientesFelices.countTo"
+                    >0</span
+                >
+                <p class="mb-0">Clientes Felices</p>
+            </div>
+            <div class="col-6 col-lg-3 my-4 count-item">
+                <div class="count-icon">
+                    <i class="bi bi-calendar-check"></i>
+                </div>
+                <span
+                    class="timer count-number"
+                    [countUp]="aniosExperiencia.countTo"
+                    >0</span
+                >
+                <p class="mb-0">Años de Experiencia</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="skills">
+        <div class="row pt-5">
+            <div class="col-lg-7">
+                <div class="skill-description">
+                    <h3 class="mb-3">
+                        He podido experimentar y desarrollar este tipo de
+                        habilidades.
+                    </h3>
+                    <p class="mb-0">
+                        Hago todo lo posible para brindarme todas las
+                        experiencias y ofrecer productos de alta calidad a mis
+                        clientes.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <ul class="knowledge-item">
+                    <li>Diseño Industrial</li>
+                    <li>Reparación de Celulares</li>
+                    <li>Electrónica &amp; Hardware</li>
+                    <li>Prototipado &amp; Modelado</li>
+                    <li>Gestión de Proyectos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skillbars -->
+    <div class="row mt-5 skills">
+        <div class="col-lg-6">
+            <h3 class="subtitle">Habilidades de Desarrollo</h3>
+            <div id="skills">
+                <div *ngIf="githubLoading" class="text-center py-3">
+                    <small class="base-color">Cargando desde GitHub...</small>
+                </div>
+                <div
+                    *ngFor="let lang of githubLanguages"
+                    class="col-lg-12 skill-box"
+                >
+                    <div class="skill-text">
+                        <div class="skillbar-title">{{ lang.name }}</div>
+                        <div class="skill-bar-percent">
+                            <span>{{ lang.percent }}</span
+                            >%
+                        </div>
+                    </div>
+                    <div
+                        class="skillbar clearfix"
+                        [attr.data-percent]="lang.percent + '%'"
+                    >
+                        <div
+                            class="skillbar-bar"
+                            [style.width]="lang.percent + '%'"
+                        ></div>
+                    </div>
+                </div>
+                <!-- static fallback oculto -->
+                <ng-container *ngIf="false">
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">Angular</div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="90"
+                                    data-speed="4000"
+                                    >90</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="90%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">React</div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="70"
+                                    data-speed="4000"
+                                    >70</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="70%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">
+                                HTML / CSS / JavaScript
+                            </div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="95"
+                                    data-speed="4000"
+                                    >95</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="95%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">TypeScript</div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="85"
+                                    data-speed="4000"
+                                    >85</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="85%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">MVC con Razor</div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="75"
+                                    data-speed="4000"
+                                    >75</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="75%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">Oracle SQL</div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="80"
+                                    data-speed="4000"
+                                    >80</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="80%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">
+                                Diseño Web &amp; UI/UX
+                            </div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="82"
+                                    data-speed="4000"
+                                    >82</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="82%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">Git</div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="88"
+                                    data-speed="4000"
+                                    >88</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="88%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 skill-box">
+                        <div class="skill-text">
+                            <div class="skillbar-title">
+                                IA &amp; MCP Agents
+                            </div>
+                            <div class="skill-bar-percent">
+                                <span
+                                    data-from="0"
+                                    data-to="78"
+                                    data-speed="4000"
+                                    >78</span
+                                >%
+                            </div>
+                        </div>
+                        <div class="skillbar clearfix" data-percent="78%">
+                            <div class="skillbar-bar"></div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="col-lg-5 ms-auto mt-5 mt-lg-0">
+            <h3 class="subtitle">Idiomas</h3>
+            <div class="language-bar">
+                <div class="language-skill">
+                    <h6 class="mb-0">Español <span>Nativo</span></h6>
+                    <ul class="list-inline text-right">
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="language-skill">
+                    <h6 class="mb-0">Ingles <span>Intermedio</span></h6>
+                    <ul class="list-inline text-right">
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle-fill"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle"></i>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="bi bi-circle"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

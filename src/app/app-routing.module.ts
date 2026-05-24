@@ -5,6 +5,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { BlogComponent } from './pages/blog/blog.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent, data: {animation: 'About'} },
   { path: 'resume', component: ResumeComponent, data: {animation: 'Resume'} },
   { path: 'works', component: PortfolioComponent, data: {animation: 'Portfolio'} },
+  { path: 'blog', component: BlogComponent, data: {animation: 'Blog'} },
   { path: 'contact', component: ContactComponent, data: {animation: 'Contact'} },
   { path: '**', pathMatch: 'full', redirectTo: 'hero' }
 ];

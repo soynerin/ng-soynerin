@@ -1,12 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { slideInAnimation } from './route-animation';
+import { Component } from '@angular/core'
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    animations: [slideInAnimation],
-    standalone: false
+    standalone: false,
 })
-export class AppComponent {
-}
+export class AppComponent {}

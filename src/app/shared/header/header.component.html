@@ -1,18 +1,95 @@
-<header>
-    <div class="header-navbar h-100">
-        <a class="navbar-brand" href="#"><b>N</b><span>Nerin</span></a>
-        <ul class="list-group menu text-center" id="menu">            
-            <li class="list-group-item"><a [routerLink]="['/hero']" [routerLinkActive]="['active']"><i class="fa fa-home"></i><span>Inicio</span></a></li>
-            <li class="list-group-item"><a [routerLink]="['/about']" [routerLinkActive]="['active']"><i class="fa fa-user"></i><span>Acerca</span></a></li>
-            <li class="list-group-item"><a [routerLink]="['/resume']" [routerLinkActive]="['active']"><i class="fa fa-address-book"></i><span>Resumen</span></a></li>
-            <li class="list-group-item"><a [routerLink]="['/works']" [routerLinkActive]="['active']"><i class="fa fa-briefcase"></i><span>Proyectos</span></a></li>
-            <!-- <li class="list-group-item"><a href="#blog"><i class="fa fa-file-text"></i><span>Blog</span></a></li> -->
-            <li class="list-group-item"><a [routerLink]="['/contact']" [routerLinkActive]="['active']"><i class="fa fa-envelope-open"></i><span>Contacto</span></a></li>
-        </ul>
-        <div class="menu-toggler">
-            <span>
-                <i class="text-white lni-menu"></i>
-            </span>
+<div class="left-side nav-close">
+    <div class="menu-content-align">
+        <div class="left-side-image">
+            <img src="assets/img/about-perfil.jpg" alt="Neri Espinola" />
+        </div>
+        <h1 class="mt-1">Neri Espinola</h1>
+        <a
+            class="download-cv primary-button d-none d-lg-inline-block"
+            href="assets/documents/EspinolaNeriAgustin.docx"
+            download
+            >Descargar CV</a
+        >
+        <div class="container d-lg-none d-inline-block">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="text-muted mb-0">Desarrollador Web</p>
+                </div>
+            </div>
         </div>
     </div>
-</header>
+    <div class="menu-align">
+        <ul class="list-group menu text-center" id="menu">
+            <li class="list-group-item">
+                <a href="#hero">
+                    <i class="bi bi-house"></i>
+                    <span>inicio</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#about">
+                    <i class="bi bi-person"></i>
+                    <span>acerca</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#resume">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>resumen</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#portfolio">
+                    <i class="bi bi-collection"></i>
+                    <span>proyectos</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#blog">
+                    <i class="bi bi-book"></i>
+                    <span>blog</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#contact">
+                    <i class="bi bi-geo-alt"></i>
+                    <span>contacto</span>
+                </a>
+            </li>
+        </ul>
+        <div class="menu-footer">
+            <a
+                class="download-cv primary-button mt-3 mb-4 d-lg-none"
+                href="assets/documents/EspinolaNeriAgustin.docx"
+                download
+                >Descargar CV</a
+            >
+            <div class="social d-lg-none d-block">
+                <a
+                    href="https://github.com/soynerin"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="d-inline-block"
+                >
+                    <i class="bi bi-github"></i>
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/neri-espinola/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="d-inline-block mx-4"
+                >
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a
+                    href="https://www.facebook.com/iNeriX"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="d-inline-block"
+                >
+                    <i class="bi bi-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

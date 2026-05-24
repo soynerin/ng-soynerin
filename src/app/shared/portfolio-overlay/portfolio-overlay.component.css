@@ -1,0 +1,163 @@
+﻿/* === Portfolio Overlay (ViewEncapsulation.None) === */
+
+.portfolio-overlay-wrap {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100vh;
+  z-index: 99999 !important;
+  overflow-y: auto !important;
+  background-color: #1c1c1e !important;
+  box-sizing: border-box;
+  animation: overlayIn 0.3s ease;
+}
+
+.portfolio-overlay-wrap .ajax-page-nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  background-color: #1c1c1e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
+}
+
+.portfolio-overlay-wrap .ajax-page-close-button {
+  margin-left: 16px;
+}
+
+.portfolio-overlay-wrap .ajax-page-prev-next {
+  display: flex !important;
+  gap: 8px;
+}
+
+.portfolio-overlay-wrap .po-body {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  box-sizing: border-box;
+}
+
+.portfolio-overlay-wrap .po-content-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.portfolio-overlay-wrap .po-main {
+  flex: 1 1 55%;
+  min-width: 0;
+}
+
+.portfolio-overlay-wrap .po-aside {
+  flex: 0 0 280px;
+  min-width: 240px;
+}
+
+.portfolio-overlay-wrap .entry-image img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-overlay-wrap .po-content-row {
+    flex-direction: column;
+  }
+
+  .portfolio-overlay-wrap .po-aside {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* Barra de navegacion sticky */
+.po-nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  background-color: #1c1c1e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
+}
+
+/* Cuerpo con max-width propio */
+.po-body {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  box-sizing: border-box;
+}
+
+/* Fila imagen + sidebar */
+.po-content-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.po-main {
+  flex: 1 1 55%;
+  min-width: 0;
+}
+
+.po-aside {
+  flex: 0 0 280px;
+  min-width: 240px;
+}
+
+.entry-image img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .po-content-row {
+    flex-direction: column;
+  }
+
+  .po-aside {
+    flex: 1 1 100%;
+  }
+}

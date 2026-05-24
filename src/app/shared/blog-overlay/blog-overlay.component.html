@@ -1,0 +1,100 @@
+<div *ngIf="post" class="blog-overlay-wrap">
+    <!-- Navegacion -->
+    <div class="ajax-page-nav">
+        <div class="nav-item ajax-page-prev-next">
+            <a href="javascript:void(0)" (click)="prev()"><i class="bi bi-chevron-left"></i></a>
+            <a href="javascript:void(0)" (click)="next()"><i class="bi bi-chevron-right"></i></a>
+        </div>
+        <div class="nav-item ajax-page-close-button">
+            <a href="javascript:void(0)" (click)="close()"><i class="bi bi-x"></i></a>
+        </div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="po-body">
+        <div class="container">
+
+            <!-- Encabezado -->
+            <div class="row">
+                <div class="col-lg-12 mt-3">
+                    <h2 class="header-title">{{ post.title }}</h2>
+                    <div class="entry-meta">
+                        <ul class="list-inline">
+                            <li class="list-inline-item mb-3">
+                                <i class="bi bi-calendar-check"></i>
+                                {{ post.date }}
+                            </li>
+                            <li class="list-inline-item mb-3">
+                                <i class="bi bi-person-fill"></i>
+                                Neri Espinola
+                            </li>
+                            <li class="list-inline-item mb-4">
+                                <i class="bi bi-tag"></i>
+                                {{ post.category }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post content -->
+            <div class="row row-sticky">
+                <div class="col-12 post-content">
+                    <div class="single-post">
+                        <div class="entry-image">
+                            <img [src]="post.previewImg" [alt]="post.title" />
+                        </div>
+                        <div class="entry-content">
+                            <p class="mb-0">{{ post.body }}</p>
+                            <div class="quotation">
+                                <h6 class="font-italic mb-0">" {{ post.quote }} "</h6>
+                            </div>
+                            <h3>{{ post.section }}</h3>
+                            <ul class="about-description-box">
+                                <li *ngFor="let bullet of post.bullets">
+                                    <p>{{ bullet }}</p>
+                                </li>
+                            </ul>
+                            <p class="mt-4">{{ post.bodyExtra }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Dejar un comentario -->
+                    <div class="contact-01 mt-5">
+                        <div class="contact mb-5">
+                            <div class="contact-form">
+                                <h3 class="text-left mb-4">Dejar un comentario</h3>
+                                <div class="contact-box">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-lg-6 form-item">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Nombre*" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 form-item">
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" placeholder="Email*" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12 form-item">
+                                                <div class="form-group">
+                                                    <textarea rows="4" class="form-control textarea" placeholder="Tu mensaje..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 text-left">
+                                                <button type="button" class="primary-button border-0">Enviar comentario</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

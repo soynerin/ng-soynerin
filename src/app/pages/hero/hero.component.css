@@ -1,0 +1,11 @@
+:host {
+  display: contents;
+}
+
+.extend-icon {
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top top;
+  border: 4px solid var(--base-color, #c8a951);
+  box-shadow: 0 0 40px rgba(200, 169, 81, 0.2);
+}

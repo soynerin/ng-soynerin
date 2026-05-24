@@ -1,0 +1,78 @@
+﻿<div *ngIf="project" class="portfolio-overlay-wrap">
+    <!-- Navegacion -->
+    <div class="ajax-page-nav">
+        <div class="nav-item ajax-page-prev-next">
+            <a href="javascript:void(0)" (click)="prev()"
+                ><i class="bi bi-chevron-left"></i
+            ></a>
+            <a href="javascript:void(0)" (click)="next()"
+                ><i class="bi bi-chevron-right"></i
+            ></a>
+        </div>
+        <div class="nav-item ajax-page-close-button">
+            <a href="javascript:void(0)" (click)="close()"
+                ><i class="bi bi-x"></i
+            ></a>
+        </div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="po-body">
+        <div class="portfolio-page-title">
+            <h1>{{ project.title }}</h1>
+        </div>
+
+        <div class="po-content-row">
+            <!-- Imagen + descripcion -->
+            <div class="po-main">
+                <div *ngFor="let img of project.images" class="entry-image">
+                    <img [src]="img" [alt]="project.title" />
+                </div>
+                <div class="entry-content mt-4">
+                    <h2>Descripcion del Proyecto</h2>
+                    <p>{{ project.description }}</p>
+                </div>
+                <div class="mt-4">
+                    <a
+                        [href]="project.url"
+                        target="_blank"
+                        rel="noreferrer"
+                        class="primary-button"
+                    >
+                        Visitar Sitio
+                        <i class="bi bi-box-arrow-up-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sidebar detalles -->
+            <aside class="po-aside">
+                <div class="aside-box">
+                    <div class="aside-title">
+                        <h6>Detalles del Proyecto</h6>
+                    </div>
+                    <div class="aside-item-portfolio">
+                        <ul class="list-unstyled">
+                            <li>
+                                <span>Categoria: </span
+                                ><span>{{ project.category }}</span>
+                            </li>
+                            <li>
+                                <span>Cliente: </span
+                                ><span>{{ project.client }}</span>
+                            </li>
+                            <li>
+                                <span>Fecha: </span
+                                ><span>{{ project.date }}</span>
+                            </li>
+                            <li>
+                                <span>Tecnologias: </span
+                                ><span>{{ project.technologies }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>

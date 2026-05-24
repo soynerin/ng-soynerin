@@ -1,0 +1,6 @@
+/* app-root: ocupa toda la pantalla como el body */
+app-root {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
