@@ -150,7 +150,11 @@
                     <div class="skill-text">
                         <div class="skillbar-title">{{ lang.name }}</div>
                         <div class="skill-bar-percent">
-                            <span>{{ lang.percent }}</span
+                            <span
+                                data-from="0"
+                                [attr.data-to]="lang.percent"
+                                data-speed="4000"
+                                >{{ lang.percent }}</span
                             >%
                         </div>
                     </div>

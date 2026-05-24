@@ -70,7 +70,7 @@ export class AboutComponent implements OnInit, AfterViewInit {
     }
 
     fetchGitHubLanguages() {
-        const CACHE_KEY = 'gh_languages'
+        const CACHE_KEY = 'gh_languages_v2'
         const CACHE_TTL = 24 * 60 * 60 * 1000 // 24 horas
 
         const cached = localStorage.getItem(CACHE_KEY)
@@ -112,19 +112,21 @@ export class AboutComponent implements OnInit, AfterViewInit {
                                     }
                                 )
                             })
-                            const totalBytes = Object.values(totals).reduce(
-                                (a, b) => a + b,
+                            const top4 = Object.entries(totals)
+                                .sort(([, a], [, b]) => b - a)
+                                .slice(0, 4)
+                            const top4Total = top4.reduce(
+                                (sum, [, b]) => sum + b,
                                 0
                             )
-                            this.githubLanguages = Object.entries(totals)
-                                .map(([name, bytes]) => ({
+                            this.githubLanguages = top4.map(
+                                ([name, bytes]) => ({
                                     name,
                                     percent: Math.round(
-                                        (bytes / totalBytes) * 100
+                                        (bytes / top4Total) * 100
                                     ),
-                                }))
-                                .sort((a, b) => b.percent - a.percent)
-                                .slice(0, 4)
+                                })
+                            )
                             localStorage.setItem(
                                 CACHE_KEY,
                                 JSON.stringify({
@@ -135,15 +137,24 @@ export class AboutComponent implements OnInit, AfterViewInit {
                             this.githubLoading = false
                         },
                         error: () => {
+                            this.githubLanguages = this.staticLanguages()
                             this.githubLoading = false
                         },
                     })
                 },
                 error: () => {
+                    this.githubLanguages = this.staticLanguages()
                     this.githubLoading = false
                 },
             })
     }
 
-
+    private staticLanguages() {
+        return [
+            { name: 'TypeScript', percent: 45 },
+            { name: 'JavaScript', percent: 30 },
+            { name: 'HTML', percent: 15 },
+            { name: 'CSS', percent: 10 },
+        ]
+    }
 }
