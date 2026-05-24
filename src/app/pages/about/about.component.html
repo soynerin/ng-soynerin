@@ -39,7 +39,7 @@
                             <li>
                                 Edad : <small>{{ edad }}</small>
                             </li>
-                            <li>Titulo : <small>Tecnico Superior</small></li>
+                            <li>Titulo : <small>Técnico Superior en Desarrollo de Software</small></li>
                             <li>
                                 Correo :
                                 <small>neri.agustin.es&#64;outlook.com</small>
@@ -64,15 +64,19 @@
             <div class="col-6 col-lg-3 my-4 count-item">
                 <div class="count-icon"><i class="bi bi-code-slash"></i></div>
                 <span
-                    class="timer count-number"
-                    [countUp]="proyectosTerminados.countTo"
+                    class="count-number"
+                    [countUp]="proyectosTerminados"
+                    [options]="countUpOptions"
+                    [reanimateOnClick]="false"
                     >0</span
                 >
                 <p class="mb-0">Proyectos Terminados</p>
             </div>
             <div class="col-6 col-lg-3 my-4 count-item">
                 <div class="count-icon"><i class="bi bi-cup-fill"></i></div>
-                <span class="timer count-number" [countUp]="tazasDeCafe.countTo"
+                <span class="count-number" [countUp]="tazasDeCafe"
+                    [options]="countUpOptions"
+                    [reanimateOnClick]="false"
                     >0</span
                 >
                 <p class="mb-0">Tazas de Cafe</p>
@@ -80,8 +84,10 @@
             <div class="col-6 col-lg-3 my-4 count-item">
                 <div class="count-icon"><i class="bi bi-emoji-smile"></i></div>
                 <span
-                    class="timer count-number"
-                    [countUp]="clientesFelices.countTo"
+                    class="count-number"
+                    [countUp]="clientesFelices"
+                    [options]="countUpOptions"
+                    [reanimateOnClick]="false"
                     >0</span
                 >
                 <p class="mb-0">Clientes Felices</p>
@@ -91,8 +97,10 @@
                     <i class="bi bi-calendar-check"></i>
                 </div>
                 <span
-                    class="timer count-number"
-                    [countUp]="aniosExperiencia.countTo"
+                    class="count-number"
+                    [countUp]="aniosExperiencia"
+                    [options]="countUpOptions"
+                    [reanimateOnClick]="false"
                     >0</span
                 >
                 <p class="mb-0">Años de Experiencia</p>
@@ -106,13 +114,12 @@
             <div class="col-lg-7">
                 <div class="skill-description">
                     <h3 class="mb-3">
-                        He podido experimentar y desarrollar este tipo de
-                        habilidades.
+                        Tecnologías y herramientas con las que trabajo a diario.
                     </h3>
                     <p class="mb-0">
-                        Hago todo lo posible para brindarme todas las
-                        experiencias y ofrecer productos de alta calidad a mis
-                        clientes.
+                        Cada proyecto es una oportunidad de aprender y mejorar.
+                        Me mantengo actualizado para entregar soluciones
+                        modernas, eficientes y centradas en el usuario.
                     </p>
                 </div>
             </div>

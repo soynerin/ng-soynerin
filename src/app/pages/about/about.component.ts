@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core'
+﻿import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { forkJoin } from 'rxjs'
 import moment from 'moment'
@@ -9,25 +9,64 @@ import moment from 'moment'
     styleUrls: ['./about.component.css'],
     standalone: false,
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, AfterViewInit {
     edad: number = 0
-    tazasDeCafe: any
-    proyectosTerminados: any
-    clientesFelices: any
-    aniosExperiencia: any
+    proyectosTerminados = 0
+    tazasDeCafe = 0
+    clientesFelices = 0
+    aniosExperiencia = 0
+    countUpOptions = { enableScrollSpy: false, duration: 2 }
+    private animated = false
     githubLanguages: { name: string; percent: number }[] = []
     githubLoading = true
 
-    constructor(private http: HttpClient) {
-        this.contadorTazasCafe()
-        this.contadorProyectosTerminados()
-        this.contadorClientesFelices()
-        this.contadorAniosExperiencia()
-    }
+    constructor(private http: HttpClient, private zone: NgZone) {}
 
     ngOnInit(): void {
         this.edad = moment().diff('1989-05-09', 'years')
         this.fetchGitHubLanguages()
+    }
+
+    ngAfterViewInit(): void {
+        const section = document.getElementById('about')
+        if (!section) return
+
+        const trigger = () => {
+            this.zone.run(() => {
+                this.animated = true
+                this.proyectosTerminados = 2
+                this.tazasDeCafe = this.calcDiasHabiles()
+                this.clientesFelices = 1
+                this.aniosExperiencia = moment().diff('2015-07-01', 'years')
+            })
+        }
+
+        // Si la sección ya está activa al cargar (navegación directa a #about)
+        if (section.classList.contains('active')) {
+            trigger()
+            return
+        }
+
+        // Observa cuando arshia.js agrega la clase "active" a la sección
+        const observer = new MutationObserver(() => {
+            if (section.classList.contains('active') && !this.animated) {
+                trigger()
+                observer.disconnect()
+            }
+        })
+        observer.observe(section, { attributes: true, attributeFilter: ['class'] })
+    }
+
+    private calcDiasHabiles(): number {
+        const inicio = moment('2015-07-01')
+        const hoy = moment()
+        let dias = 0
+        const current = inicio.clone()
+        while (current.isSameOrBefore(hoy, 'day')) {
+            if (current.day() !== 0 && current.day() !== 6) dias++
+            current.add(1, 'day')
+        }
+        return dias
     }
 
     fetchGitHubLanguages() {
@@ -106,26 +145,5 @@ export class AboutComponent implements OnInit {
             })
     }
 
-    contadorTazasCafe() {
-        const primerDiaTrabajo = moment('2015-01-09')
-        const dias = moment().diff(primerDiaTrabajo, 'days')
-        this.tazasDeCafe = { countTo: dias, from: 0, duration: 10 }
-    }
 
-    contadorProyectosTerminados() {
-        this.proyectosTerminados = { countTo: 12, from: 0, duration: 5 }
-    }
-
-    contadorClientesFelices() {
-        this.clientesFelices = { countTo: 8, from: 0, duration: 5 }
-    }
-
-    contadorAniosExperiencia() {
-        const inicio = moment('2015-01-09')
-        this.aniosExperiencia = {
-            countTo: moment().diff(inicio, 'years'),
-            from: 0,
-            duration: 5,
-        }
-    }
 }

@@ -9,10 +9,12 @@ declare function skills(): any;
 })
 export class ResumeComponent implements OnInit {
 
-  constructor() { }
+    aniosReparacion = new Date().getFullYear() - 2023
 
-  ngOnInit(): void {
-    skills();
-  }
+    constructor() { }
+
+    ngOnInit(): void {
+        skills();
+    }
 
 }
