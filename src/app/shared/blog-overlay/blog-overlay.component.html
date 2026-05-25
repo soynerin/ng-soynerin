@@ -59,35 +59,154 @@
                         </div>
                     </div>
 
-                    <!-- Dejar un comentario -->
+                    <!-- Comentarios -->
                     <div class="contact-01 mt-5">
                         <div class="contact mb-5">
                             <div class="contact-form">
-                                <h3 class="text-left mb-4">Dejar un comentario</h3>
+
+                                <!-- Lista de comentarios -->
+                                <h3 class="text-left mb-4">
+                                    Comentarios
+                                    <span *ngIf="comments.length > 0" class="base-color">({{ comments.length }})</span>
+                                </h3>
+
+                                <div *ngIf="commentsLoading" class="text-center py-3">
+                                    <small class="base-color">Cargando comentarios...</small>
+                                </div>
+
+                                <div *ngIf="!commentsLoading && comments.length === 0" class="py-3">
+                                    <small class="text-muted">Sé el primero en comentar.</small>
+                                </div>
+
+                                <div *ngFor="let comment of comments" class="comment-item mb-4">
+                                    <!-- Comentario raíz -->
+                                    <div class="comment-box p-3">
+                                        <div class="comment-header d-flex justify-content-between align-items-center mb-2">
+                                            <strong class="base-color">{{ comment.author_name }}</strong>
+                                            <small class="text-muted">{{ comment.created_at | date:'d MMM yyyy' }}</small>
+                                        </div>
+                                        <p class="mb-2">{{ comment.content }}</p>
+                                        <div class="comment-actions d-flex gap-3">
+                                            <button
+                                                type="button"
+                                                class="btn-comment-action"
+                                                [class.liked]="commentService.hasLiked(comment.id)"
+                                                [disabled]="commentService.hasLiked(comment.id)"
+                                                (click)="likeComment(comment)"
+                                            >
+                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                {{ comment.likes_count }}
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="btn-comment-action"
+                                                (click)="startReply(comment.id)"
+                                            >
+                                                <i class="bi bi-reply"></i>
+                                                Responder
+                                            </button>
+                                        </div>
+
+                                        <!-- Formulario de reply inline -->
+                                        <div *ngIf="replyingTo === comment.id" class="reply-form mt-3">
+                                            <textarea
+                                                class="form-control textarea mb-2"
+                                                rows="2"
+                                                placeholder="Tu respuesta..."
+                                                [(ngModel)]="replyContent"
+                                            ></textarea>
+                                            <div class="d-flex gap-2">
+                                                <button
+                                                    type="button"
+                                                    class="primary-button border-0"
+                                                    [disabled]="replySubmitting || !replyContent.trim()"
+                                                    (click)="submitReply(comment.id, nameInput)"
+                                                >
+                                                    {{ replySubmitting ? 'Enviando...' : 'Enviar respuesta' }}
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    class="btn-comment-action"
+                                                    (click)="startReply(comment.id)"
+                                                >
+                                                    Cancelar
+                                                </button>
+                                            </div>
+                                            <small class="text-muted d-block mt-1">
+                                                <i class="bi bi-info-circle"></i>
+                                                Se usará el nombre que ingreses en el formulario de abajo.
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <!-- Replies -->
+                                    <div *ngFor="let reply of comment.replies" class="comment-box comment-reply p-3 ms-4 mt-2">
+                                        <div class="comment-header d-flex justify-content-between align-items-center mb-2">
+                                            <strong class="base-color">{{ reply.author_name }}</strong>
+                                            <small class="text-muted">{{ reply.created_at | date:'d MMM yyyy' }}</small>
+                                        </div>
+                                        <p class="mb-2">{{ reply.content }}</p>
+                                        <button
+                                            type="button"
+                                            class="btn-comment-action"
+                                            [class.liked]="commentService.hasLiked(reply.id)"
+                                            [disabled]="commentService.hasLiked(reply.id)"
+                                            (click)="likeComment(reply)"
+                                        >
+                                            <i class="bi bi-hand-thumbs-up"></i>
+                                            {{ reply.likes_count }}
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Formulario nuevo comentario -->
+                                <h3 class="text-left mb-4 mt-5">Dejar un comentario</h3>
                                 <div class="contact-box">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-lg-6 form-item">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Nombre*" />
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 form-item">
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control" placeholder="Email*" />
-                                                </div>
-                                            </div>
-                                            <div class="col-12 form-item">
-                                                <div class="form-group">
-                                                    <textarea rows="4" class="form-control textarea" placeholder="Tu mensaje..."></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 text-left">
-                                                <button type="button" class="primary-button border-0">Enviar comentario</button>
+                                    <div class="row">
+                                        <div class="col-lg-6 form-item">
+                                            <div class="form-group">
+                                                <input
+                                                    #nameInput
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Nombre *"
+                                                    [(ngModel)]="newName"
+                                                />
                                             </div>
                                         </div>
-                                    </form>
+                                        <div class="col-lg-6 form-item">
+                                            <div class="form-group">
+                                                <input
+                                                    type="email"
+                                                    class="form-control"
+                                                    placeholder="Email (opcional, para recibir notificaciones)"
+                                                    [(ngModel)]="newEmail"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 form-item">
+                                            <div class="form-group">
+                                                <textarea
+                                                    rows="4"
+                                                    class="form-control textarea"
+                                                    placeholder="Tu comentario..."
+                                                    [(ngModel)]="newContent"
+                                                ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 text-left">
+                                            <button
+                                                type="button"
+                                                class="primary-button border-0"
+                                                [disabled]="submitting || !newName.trim() || !newContent.trim()"
+                                                (click)="submitComment()"
+                                            >
+                                                {{ submitting ? 'Enviando...' : 'Enviar comentario' }}
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

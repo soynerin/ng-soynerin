@@ -17,6 +17,9 @@
     ],
     "useDefineForClassFields": false
   },
+  "exclude": [
+    "supabase"
+  ],
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true

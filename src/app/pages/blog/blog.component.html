@@ -1,6 +1,7 @@
 ﻿<div class="container">
     <h3 class="subtitle">Últimas Noticias</h3>
     <div class="boxes">
+        <app-loading *ngIf="loading"></app-loading>
         <div class="row vertical-line">
             <div
                 *ngFor="let post of posts"
@@ -10,13 +11,12 @@
                     <div class="blog-image">
                         <img [src]="post.previewImg" [alt]="post.title" />
                         <div class="blog-icon">
-                            <i class="bi bi-calendar-check"></i>
-                            {{ post.date }}
+                            <i class="bi bi-journal-text"></i>
                         </div>
                     </div>
                     <div class="blog-post-content">
                         <div class="blog-dates">
-                            <a>{{ post.category }}</a>
+                            <span>{{ post.date }}</span>
                         </div>
                         <h6 class="blog-header">{{ post.title }}</h6>
                         <p class="mb-0">{{ post.body | slice:0:120 }}...</p>
