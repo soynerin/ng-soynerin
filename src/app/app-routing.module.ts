@@ -6,6 +6,7 @@ import { ResumeComponent } from './pages/resume/resume.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'works', component: PortfolioComponent, data: {animation: 'Portfolio'} },
   { path: 'blog', component: BlogComponent, data: {animation: 'Blog'} },
   { path: 'contact', component: ContactComponent, data: {animation: 'Contact'} },
+  { path: 'admin', component: AdminComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'hero' }
 ];
 

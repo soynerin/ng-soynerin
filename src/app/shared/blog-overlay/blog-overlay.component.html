@@ -91,13 +91,14 @@
                                                 type="button"
                                                 class="btn-comment-action"
                                                 [class.liked]="commentService.hasLiked(comment.id)"
-                                                [disabled]="commentService.hasLiked(comment.id)"
+                                                [disabled]="commentService.hasLiked(comment.id) || readOnly"
                                                 (click)="likeComment(comment)"
                                             >
                                                 <i class="bi bi-hand-thumbs-up"></i>
                                                 {{ comment.likes_count }}
                                             </button>
                                             <button
+                                                *ngIf="!readOnly"
                                                 type="button"
                                                 class="btn-comment-action"
                                                 (click)="startReply(comment.id)"
@@ -108,7 +109,7 @@
                                         </div>
 
                                         <!-- Formulario de reply inline -->
-                                        <div *ngIf="replyingTo === comment.id" class="reply-form mt-3">
+                                        <div *ngIf="!readOnly && replyingTo === comment.id" class="reply-form mt-3">
                                             <textarea
                                                 class="form-control textarea mb-2"
                                                 rows="2"
@@ -160,6 +161,8 @@
                                 </div>
 
                                 <!-- Formulario nuevo comentario -->
+                                <ng-container>
+                                <div [hidden]="readOnly">
                                 <h3 class="text-left mb-4 mt-5">Dejar un comentario</h3>
                                 <div class="contact-box">
                                     <div class="row">
@@ -209,6 +212,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
+                                </ng-container>
 
                             </div>
                         </div>

@@ -11,6 +11,7 @@
 var $window = $(window)
 var $root = $('html, body')
 var $lastWindowWidth = 0
+var $lastDevicePixelRatio = window.devicePixelRatio || 1
 var $lastHash = 0
 
 $(document).ready(function () {
@@ -36,7 +37,15 @@ $window.on('load', function () {
 })
 
 $window.on('resize', function () {
-    if ($lastWindowWidth != $window.width()) {
+    var currentDPR = window.devicePixelRatio || 1
+    var currentWidth = $window.width()
+    // Zoom changes devicePixelRatio → ignore to prevent unwanted reload
+    if (currentDPR !== $lastDevicePixelRatio) {
+        $lastDevicePixelRatio = currentDPR
+        return
+    }
+    // Real window resize (drag/snap) → reload for pagepiling reinitialization
+    if ($lastWindowWidth !== currentWidth) {
         location.reload()
     }
 })
@@ -48,10 +57,14 @@ $window.on('popstate', function () {
         var func = animateRandom()
 
         var $value = location.hash.replace('#', '')
+        // Strip leading slash from Angular hash routing (e.g. '/hero' → 'hero')
+        if ($value.charAt(0) === '/') $value = $value.slice(1)
+        // Skip non-section routes (e.g. 'admin')
+        if ($('#main > section#' + $value).length === 0 && $value !== '') return
         var $main = $('#main')
         var $first = '#' + $('#main > section:first-child').attr('id')
         var $last = '#' + $('#main > section:last-child').attr('id')
-        var $id = location.hash
+        var $id = '#' + $value
         var $thisId = '#' + $('#main > section.active').attr('id')
         $('.menu > li a').removeClass('active')
         if ($value == '') {
@@ -309,6 +322,12 @@ function scrollToAnchor() {
 
     //getting the anchor link in the URL and deleting the `#`
     var value = window.location.hash.replace('#', '')
+    // Strip leading slash from Angular hash routing (e.g. '/hero' → 'hero')
+    if (value.charAt(0) === '/') value = value.slice(1)
+    // Skip non-section routes (e.g. 'admin') — activate first section as fallback
+    if (value !== '' && $('#main > section#' + value).length === 0) {
+        value = ''
+    }
     var firstId = $('#main > section:first-child').attr('id')
     var lastId = $('#main > section:last-child').attr('id')
     if (value.length == 0 || value == firstId) {

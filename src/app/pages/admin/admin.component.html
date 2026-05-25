@@ -1,0 +1,208 @@
+<div class="admin-overlay" *ngIf="visible">
+
+    <!-- LOGIN -->
+    <div *ngIf="view === 'login'" class="admin-center">
+        <div class="admin-card">
+            <h2 class="admin-title mb-4">
+                <i class="bi bi-shield-lock me-2 base-color"></i>Admin
+            </h2>
+            <div class="form-group mb-3">
+                <input
+                    type="email"
+                    class="form-control admin-input"
+                    placeholder="Email"
+                    [(ngModel)]="loginEmail"
+                    (keyup.enter)="login()"
+                />
+            </div>
+            <div class="form-group mb-3">
+                <input
+                    type="password"
+                    class="form-control admin-input"
+                    placeholder="Contraseña"
+                    [(ngModel)]="loginPassword"
+                    (keyup.enter)="login()"
+                />
+            </div>
+            <div class="form-check mb-3">
+                <input
+                    type="checkbox"
+                    class="form-check-input admin-checkbox"
+                    id="rememberMe"
+                    [(ngModel)]="rememberMe"
+                />
+                <label class="form-check-label admin-remember-label" for="rememberMe">
+                    Recordar usuario y contraseña
+                </label>
+            </div>
+            <div *ngIf="loginError" class="text-danger small mb-3">{{ loginError }}</div>
+            <button class="primary-button border-0 w-100" [disabled]="loggingIn" (click)="login()">
+                <span *ngIf="loggingIn" class="spinner-border spinner-border-sm me-2"></span>
+                {{ loggingIn ? 'Ingresando...' : 'Ingresar' }}
+            </button>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div *ngIf="view === 'dashboard'" class="admin-panel">
+        <div class="admin-topbar">
+            <h3 class="admin-title mb-0">
+                <i class="bi bi-pencil-square me-2 base-color"></i>Blog Admin
+            </h3>
+            <div class="d-flex gap-2">
+                <button class="primary-button border-0" (click)="newPost()">
+                    <i class="bi bi-plus-lg me-1"></i>Nuevo post
+                </button>
+                <button class="secondary-button px-3 py-2" (click)="logout()">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="postsLoading" class="text-center py-5">
+            <span class="spinner-border base-color"></span>
+        </div>
+
+        <!-- Error -->
+        <div *ngIf="!postsLoading && postsError" class="admin-error-box mb-4">
+            <i class="bi bi-exclamation-triangle me-2"></i>{{ postsError }}
+            <div class="mt-2 small opacity-75">
+                Asegurate de ejecutar en Supabase SQL Editor:
+                <code>ALTER TABLE posts ENABLE ROW LEVEL SECURITY;</code> y crear políticas para <code>anon</code> (SELECT published=true) y <code>authenticated</code> (ALL).
+            </div>
+        </div>
+
+        <!-- Cards de posts -->
+        <div *ngIf="!postsLoading && !postsError" class="admin-post-list">
+            <div *ngIf="posts.length === 0" class="admin-empty-state">
+                <i class="bi bi-journal-x"></i>
+                <p>No hay posts todavía.</p>
+            </div>
+            <div class="admin-post-card" *ngFor="let post of posts">
+                <!-- Top: título + badge -->
+                <div class="admin-card-top">
+                    <div class="admin-card-title-group">
+                        <div class="admin-card-title">{{ post.title }}</div>
+                        <div class="admin-card-slug">{{ post.slug }}</div>
+                    </div>
+                    <span class="admin-badge" [class.published]="post.published">
+                        {{ post.published ? 'Publicado' : 'Borrador' }}
+                    </span>
+                </div>
+                <!-- Meta -->
+                <div class="admin-card-meta">
+                    <div class="admin-meta-item">
+                        <span class="admin-meta-label">Categoría</span>
+                        <span class="admin-meta-value">{{ post.category || '—' }}</span>
+                    </div>
+                    <div class="admin-meta-item">
+                        <span class="admin-meta-label">Fecha</span>
+                        <span class="admin-meta-value">{{ post.date || '—' }}</span>
+                    </div>
+                </div>
+                <!-- Acciones -->
+                <div class="admin-card-actions">
+                    <button class="btn-card-action" title="Ver preview" (click)="viewPost(post)">
+                        <i class="bi bi-eye"></i>
+                        <span>Ver</span>
+                    </button>
+                    <button class="btn-card-action" title="Editar" (click)="editPost(post)">
+                        <i class="bi bi-pencil"></i>
+                        <span>Editar</span>
+                    </button>
+                    <button class="btn-card-action" [class.is-on]="post.published"
+                        [title]="post.published ? 'Despublicar' : 'Publicar'"
+                        (click)="togglePublish(post)">
+                        <i class="bi" [class.bi-toggle-on]="post.published" [class.bi-toggle-off]="!post.published"></i>
+                        <span>{{ post.published ? 'Activo' : 'Inactivo' }}</span>
+                    </button>
+                    <button class="btn-card-action is-danger" title="Eliminar" (click)="deletePost(post.slug)">
+                        <i class="bi bi-trash"></i>
+                        <span>Eliminar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- EDITOR -->
+    <div *ngIf="view === 'editor'" class="admin-panel">
+        <div class="admin-topbar">
+            <button class="btn-admin-action" (click)="backToDashboard()">
+                <i class="bi bi-arrow-left me-1"></i>Volver
+            </button>
+            <h3 class="admin-title mb-0">{{ form.id ? 'Editar post' : 'Nuevo post' }}</h3>
+            <button class="primary-button border-0" [disabled]="saving" (click)="savePost()">
+                <span *ngIf="saving" class="spinner-border spinner-border-sm me-2"></span>
+                {{ saving ? 'Guardando...' : 'Guardar' }}
+            </button>
+        </div>
+
+        <div class="admin-editor-form">
+            <div *ngIf="saveError" class="alert alert-danger py-2 mb-3">{{ saveError }}</div>
+
+            <div class="row g-3">
+                <!-- Título -->
+                <div class="col-12">
+                    <label class="admin-label">Título *</label>
+                    <input type="text" class="form-control admin-input" [(ngModel)]="form.title" (blur)="!form.id && generateSlug()" />
+                </div>
+
+                <!-- Slug -->
+                <div class="col-md-8">
+                    <label class="admin-label">Slug *</label>
+                    <input type="text" class="form-control admin-input" [(ngModel)]="form.slug" />
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button class="btn-admin-action w-100" (click)="generateSlug()">
+                        <i class="bi bi-arrow-repeat me-1"></i>Generar slug
+                    </button>
+                </div>
+
+                <!-- Categoría y Fecha -->
+                <div class="col-md-6">
+                    <label class="admin-label">Categoría</label>
+                    <input type="text" class="form-control admin-input" placeholder="ej: Angular, DevOps..." [(ngModel)]="form.category" />
+                </div>
+                <div class="col-md-6">
+                    <label class="admin-label">Fecha (texto)</label>
+                    <input type="text" class="form-control admin-input" placeholder="ej: Mayo 2026" [(ngModel)]="form.date" />
+                </div>
+
+                <!-- Preview Image -->
+                <div class="col-12">
+                    <label class="admin-label">URL imagen preview</label>
+                    <input type="url" class="form-control admin-input" placeholder="https://..." [(ngModel)]="form.previewImg" />
+                </div>
+
+                <!-- Body -->
+                <div class="col-12">
+                    <label class="admin-label">Cuerpo (HTML)</label>
+                    <textarea class="form-control admin-input admin-textarea" rows="10" placeholder="<p>Contenido...</p>" [(ngModel)]="form.body"></textarea>
+                </div>
+
+                <!-- Quote -->
+                <div class="col-12">
+                    <label class="admin-label">Cita destacada (opcional)</label>
+                    <input type="text" class="form-control admin-input" [(ngModel)]="form.quote" />
+                </div>
+
+                <!-- Body Extra -->
+                <div class="col-12">
+                    <label class="admin-label">Cuerpo extra (HTML, opcional)</label>
+                    <textarea class="form-control admin-input admin-textarea" rows="6" [(ngModel)]="form.bodyExtra"></textarea>
+                </div>
+
+                <!-- Publicado -->
+                <div class="col-12">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="published" [(ngModel)]="form.published" />
+                        <label class="form-check-label admin-label" for="published">Publicado</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

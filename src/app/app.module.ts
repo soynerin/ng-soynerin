@@ -20,10 +20,12 @@ import { ContactComponent } from './pages/contact/contact.component'
 import { LoadingComponent } from './shared/loading/loading.component'
 import { PortfolioOverlayComponent } from './shared/portfolio-overlay/portfolio-overlay.component'
 import { BlogOverlayComponent } from './shared/blog-overlay/blog-overlay.component'
+import { AdminComponent } from './pages/admin/admin.component'
 
 @NgModule({
     declarations: [
         AppComponent,
+        AdminComponent,
         HeaderComponent,
         SocialBoxComponent,
         OverlayMenuComponent,

@@ -14,7 +14,9 @@ import { isValidEmail } from '../../utils/validators'
 })
 export class BlogOverlayComponent implements OnInit, OnDestroy {
     post: BlogPost | null = null
+    readOnly = false
     private sub!: Subscription
+    private readOnlySub!: Subscription
 
     // Comentarios
     comments: Comment[] = []
@@ -48,10 +50,14 @@ export class BlogOverlayComponent implements OnInit, OnDestroy {
                 this.comments = []
             }
         })
+        this.readOnlySub = this.overlayService.readOnly$.subscribe((v) => {
+            this.readOnly = v
+        })
     }
 
     ngOnDestroy(): void {
         this.sub.unsubscribe()
+        this.readOnlySub.unsubscribe()
     }
 
     loadComments(slug: string): void {

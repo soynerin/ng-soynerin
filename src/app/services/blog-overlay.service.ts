@@ -18,6 +18,8 @@ export interface BlogPost {
 export class BlogOverlayService {
     private postSubject = new BehaviorSubject<BlogPost | null>(null)
     post$ = this.postSubject.asObservable()
+    private readOnlySubject = new BehaviorSubject<boolean>(false)
+    readOnly$ = this.readOnlySubject.asObservable()
     private posts: BlogPost[] = []
 
     setPosts(posts: BlogPost[]): void {
@@ -28,11 +30,13 @@ export class BlogOverlayService {
         return this.posts
     }
 
-    open(post: BlogPost): void {
+    open(post: BlogPost, readOnly = false): void {
+        this.readOnlySubject.next(readOnly)
         this.postSubject.next(post)
     }
 
     close(): void {
+        this.readOnlySubject.next(false)
         this.postSubject.next(null)
     }
 

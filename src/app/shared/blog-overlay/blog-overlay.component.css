@@ -1,240 +1,237 @@
 /* === Blog Overlay (ViewEncapsulation.None) === */
 
 .blog-overlay-wrap {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    min-height: 100vh;
-    z-index: 99999 !important;
-    overflow-y: auto !important;
-    background-color: #1c1c1e !important;
-    box-sizing: border-box;
-    animation: overlayIn 0.3s ease;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  background-color: #1c1c1e !important;
+  box-sizing: border-box;
+  animation: overlayIn 0.3s ease;
 }
 
 .blog-overlay-wrap .ajax-page-nav {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 32px;
-    background-color: #1c1c1e;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    z-index: 10;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  background-color: #1c1c1e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
 }
 
 .blog-overlay-wrap .ajax-page-close-button {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 
 .blog-overlay-wrap .ajax-page-prev-next {
-    display: flex !important;
-    gap: 8px;
+  display: flex !important;
+  gap: 8px;
 }
 
 .blog-overlay-wrap .po-body {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 2rem 4rem;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  box-sizing: border-box;
 }
 
 /* Título */
 .blog-overlay-wrap .header-title {
-    font-size: 1.9rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 0.75rem;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
 }
 
 /* Metadatos */
 .blog-overlay-wrap .entry-meta ul {
-    margin: 0 0 1.5rem;
-    padding: 0;
+  margin: 0 0 1.5rem;
+  padding: 0;
 }
 
 .blog-overlay-wrap .entry-meta li {
-    opacity: 0.6;
-    font-size: 0.88rem;
-    margin-right: 1.25rem;
+  opacity: 0.6;
+  font-size: 0.88rem;
+  margin-right: 1.25rem;
 }
 
 .blog-overlay-wrap .entry-meta li i {
-    margin-right: 4px;
+  margin-right: 4px;
 }
 
 /* Imagen destacada */
 .blog-overlay-wrap .entry-image img {
-    width: 100%;
-    border-radius: 6px;
-    display: block;
-    margin-bottom: 1.5rem;
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 1.5rem;
 }
 
 /* Cuerpo del artículo */
 .blog-overlay-wrap .entry-content p {
-    line-height: 1.85;
-    font-size: 1rem;
-    opacity: 0.85;
-    margin-bottom: 1.25rem;
+  line-height: 1.85;
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 1.25rem;
 }
 
 .blog-overlay-wrap .entry-content h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 1.75rem 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.75rem 0 1rem;
 }
 
 /* Cita destacada */
 .blog-overlay-wrap .quotation {
-    border-left: 3px solid var(--base-color, #c8a951);
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 0 4px 4px 0;
+  border-left: 3px solid var(--base-color, #c8a951);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 4px 4px 0;
 }
 
 .blog-overlay-wrap .quotation h6 {
-    font-size: 1rem;
-    line-height: 1.7;
-    opacity: 0.9;
-    font-style: italic;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  font-style: italic;
 }
 
 /* Lista de puntos */
 .blog-overlay-wrap .about-description-box {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
 }
 
 .blog-overlay-wrap .about-description-box li {
-    padding: 0.4rem 0 0.4rem 1.5rem;
-    position: relative;
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  position: relative;
 }
 
 .blog-overlay-wrap .about-description-box li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    opacity: 0.5;
+  content: '—';
+  position: absolute;
+  left: 0;
+  opacity: 0.5;
 }
 
 .blog-overlay-wrap .about-description-box li p {
-    margin: 0;
-    opacity: 0.85;
+  margin: 0;
+  opacity: 0.85;
 }
 
 /* Formulario de comentario */
 .blog-overlay-wrap .contact-01 {
-    margin-top: 3rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
 }
 
 .blog-overlay-wrap .contact-01 h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
 }
 
 .blog-overlay-wrap .form-item {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Comentarios */
 .blog-overlay-wrap .comment-box {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
 }
 
 .blog-overlay-wrap .comment-reply {
-    border-left: 3px solid var(--base-color, #c8a951);
+  border-left: 3px solid var(--base-color, #c8a951);
 }
 
 .blog-overlay-wrap .comment-box p {
-    margin: 0;
-    opacity: 0.85;
-    font-size: 0.95rem;
-    line-height: 1.7;
+  margin: 0;
+  opacity: 0.85;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .blog-overlay-wrap .btn-comment-action {
-    background: none;
-    border: none;
-    color: inherit;
-    opacity: 0.5;
-    font-size: 0.85rem;
-    padding: 0;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.5;
+  font-size: 0.85rem;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .blog-overlay-wrap .btn-comment-action:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .blog-overlay-wrap .btn-comment-action.liked {
-    opacity: 1;
-    color: var(--base-color, #c8a951);
+  opacity: 1;
+  color: var(--base-color, #c8a951);
 }
 
 .blog-overlay-wrap .btn-comment-action:disabled {
-    cursor: default;
+  cursor: default;
 }
 
 .blog-overlay-wrap .reply-form textarea {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 /* Validación campo nombre */
 .blog-overlay-wrap .form-control.input-error {
-    border-color: #e05252 !important;
-    box-shadow: 0 0 0 2px rgba(224, 82, 82, 0.25);
-    animation: shake 0.35s ease;
+  border-color: #e05252 !important;
+  box-shadow: 0 0 0 2px rgba(224, 82, 82, 0.25);
+  animation: shake 0.35s ease;
 }
 
 @keyframes shake {
 
-    0%,
-    100% {
-        transform: translateX(0);
-    }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
 
-    20% {
-        transform: translateX(-6px);
-    }
+  20% {
+    transform: translateX(-6px);
+  }
 
-    40% {
-        transform: translateX(6px);
-    }
+  40% {
+    transform: translateX(6px);
+  }
 
-    60% {
-        transform: translateX(-4px);
-    }
+  60% {
+    transform: translateX(-4px);
+  }
 
-    80% {
-        transform: translateX(4px);
-    }
+  80% {
+    transform: translateX(4px);
+  }
 }
 
 @keyframes overlayIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

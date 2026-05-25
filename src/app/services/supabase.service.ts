@@ -6,6 +6,17 @@ import { environment } from '../../environments/environment'
 export class SupabaseService {
     readonly client: SupabaseClient = createClient(
         environment.supabaseUrl,
-        environment.supabaseKey
+        environment.supabaseKey,
+        {
+            auth: {
+                autoRefreshToken: true,
+                persistSession: true,
+                detectSessionInUrl: false,
+                // Bypass navigator.locks to prevent Zone.js from surfacing
+                // internal LockAcquireTimeoutErrors as unhandled rejections.
+                // Safe for single-tab SPAs.
+                lock: <R>(_name: string, _timeout: number, fn: () => Promise<R>) => fn(),
+            },
+        }
     )
 }
