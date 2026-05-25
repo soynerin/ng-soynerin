@@ -3,6 +3,7 @@ import { ViewEncapsulation } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { BlogOverlayService, BlogPost } from '../../services/blog-overlay.service'
 import { CommentService, Comment } from '../../services/comment.service'
+import { isValidEmail } from '../../utils/validators'
 
 @Component({
     selector: 'app-blog-overlay',
@@ -24,6 +25,7 @@ export class BlogOverlayComponent implements OnInit, OnDestroy {
     newEmail = ''
     newContent = ''
     submitting = false
+    emailInvalid = false
 
     // Reply inline
     replyingTo: string | null = null
@@ -65,6 +67,11 @@ export class BlogOverlayComponent implements OnInit, OnDestroy {
 
     submitComment(): void {
         if (!this.post || !this.newName.trim() || !this.newContent.trim()) return
+        if (this.newEmail.trim() && !this.isValidEmail(this.newEmail)) {
+            this.emailInvalid = true
+            return
+        }
+        this.emailInvalid = false
         this.submitting = true
         this.commentService.addComment({
             post_slug: this.post.slug,
@@ -77,6 +84,7 @@ export class BlogOverlayComponent implements OnInit, OnDestroy {
                 this.newEmail = ''
                 this.newContent = ''
                 this.submitting = false
+                this.emailInvalid = false
                 this.loadComments(this.post!.slug)
             },
             error: () => { this.submitting = false },
@@ -88,6 +96,8 @@ export class BlogOverlayComponent implements OnInit, OnDestroy {
         this.replyContent = ''
     }
 
+    isValidEmail = isValidEmail
+
     submitReply(parentId: string, nameInput: HTMLInputElement): void {
         if (!this.post || !this.replyContent.trim()) return
         if (!this.newName.trim()) {
@@ -97,6 +107,11 @@ export class BlogOverlayComponent implements OnInit, OnDestroy {
             setTimeout(() => nameInput.classList.remove('input-error'), 2000)
             return
         }
+        if (this.newEmail.trim() && !this.isValidEmail(this.newEmail)) {
+            this.emailInvalid = true
+            return
+        }
+        this.emailInvalid = false
         this.replySubmitting = true
         this.commentService.addComment({
             post_slug: this.post.slug,

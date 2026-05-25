@@ -179,9 +179,12 @@
                                                 <input
                                                     type="email"
                                                     class="form-control"
+                                                    [class.is-invalid]="emailInvalid"
                                                     placeholder="Email (opcional, para recibir notificaciones)"
                                                     [(ngModel)]="newEmail"
+                                                    (input)="emailInvalid = false"
                                                 />
+                                                <div class="invalid-feedback">Ingresá un correo válido.</div>
                                             </div>
                                         </div>
                                         <div class="col-12 form-item">

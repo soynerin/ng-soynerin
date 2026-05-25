@@ -72,52 +72,66 @@
                             <div class="col-lg-12 form-item">
                                 <div class="form-group">
                                     <input
+                                        #nameInput
                                         name="name"
                                         id="name"
                                         type="text"
                                         class="form-control"
+                                        [class.is-invalid]="submitted && !name.trim()"
                                         placeholder="Nombre completo*"
                                         required
                                         [(ngModel)]="name"
                                     />
+                                    <div class="invalid-feedback">El nombre es obligatorio.</div>
                                 </div>
                             </div>
                             <div class="col-lg-12 form-item">
                                 <div class="form-group">
                                     <input
+                                        #emailInput
                                         name="email"
                                         id="email"
                                         type="email"
                                         class="form-control"
+                                        [class.is-invalid]="submitted && (!from.trim() || !isValidEmail(from))"
                                         placeholder="Correo electrónico*"
                                         required
                                         [(ngModel)]="from"
                                     />
+                                    <div class="invalid-feedback">
+                                        {{ !from.trim() ? 'El correo es obligatorio.' : 'Ingresá un correo válido.' }}
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-12 form-item">
                                 <div class="form-group">
                                     <input
+                                        #subjectInput
                                         name="subject"
                                         id="subject"
                                         type="text"
                                         class="form-control"
+                                        [class.is-invalid]="submitted && !subject.trim()"
                                         placeholder="Asunto*"
                                         required
                                         [(ngModel)]="subject"
                                     />
+                                    <div class="invalid-feedback">El asunto es obligatorio.</div>
                                 </div>
                             </div>
                             <div class="col-12 form-item">
                                 <div class="form-group">
                                     <textarea
+                                        #textInput
                                         name="message"
                                         id="comments"
                                         rows="3"
                                         class="form-control textarea"
+                                        [class.is-invalid]="submitted && !text.trim()"
                                         placeholder="Tu mensaje..."
                                         [(ngModel)]="text"
                                     ></textarea>
+                                    <div class="invalid-feedback">El mensaje es obligatorio.</div>
                                 </div>
                             </div>
                             <div class="col-sm-12 text-left">
@@ -128,8 +142,15 @@
                                         (click)="sendEmail()"
                                         class="primary-button"
                                         id="submit-btn"
+                                        [disabled]="sending"
                                     >
-                                        Enviar mensaje
+                                        <span
+                                            *ngIf="sending"
+                                            class="spinner-border spinner-border-sm me-2"
+                                            role="status"
+                                            aria-hidden="true"
+                                        ></span>
+                                        {{ sending ? 'Enviando...' : 'Enviar mensaje' }}
                                     </button>
                                 </div>
                                 <div

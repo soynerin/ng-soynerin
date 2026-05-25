@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EmailService } from 'src/app/services/email.service';
-import moment from 'moment';
+import { isValidEmail } from 'src/app/utils/validators';
 import Swal from 'sweetalert2';
+
+const SWAL_THEME = {
+  background: '#2c2d30',
+  color: '#e1e1e1',
+  confirmButtonColor: '#dba423',
+};
 
 @Component({
     selector: 'app-contact',
@@ -9,48 +15,78 @@ import Swal from 'sweetalert2';
     styleUrls: ['./contact.component.css'],
     standalone: false
 })
-export class ContactComponent implements OnInit {
+
+export class ContactComponent {
 
   isLoading = true;
-  currentYear: number;
-  to = "neri.agustin.es@outlook.com";
-  subject: string;
-  text: string;
-  message: string;
-  from: string;
-  name: string;
+  sending = false;
+  submitted = false;
+  currentYear = new Date().getFullYear();
+  subject = '';
+  text = '';
+  from = '';
+  name = '';
 
   constructor(private emailService: EmailService) {}
 
-  ngOnInit(): void {
-    this.currentYear = moment().year();
-  }
+  isValidEmail = isValidEmail;
 
   sendEmail() {
-    const htmlContent = `
-      <h3>Nuevo mensaje de soyNerin.dev</h3>
-      <p><strong>Nombre:</strong> ${this.name}</p>
-      <p><strong>Email:</strong> ${this.from}</p>
-      <p><strong>Asunto:</strong> ${this.subject}</p>
-      <p><strong>Mensaje:</strong></p>
-      <p>${this.text}</p>
-    `;
+    this.submitted = true;
 
-    this.emailService.sendEmail(this.to, this.subject, htmlContent).subscribe(
+    const firstEmpty = [
+      { value: this.name, id: 'name' },
+      { value: this.from, id: 'email' },
+      { value: this.subject, id: 'subject' },
+      { value: this.text, id: 'comments' },
+    ].find(f => !f.value.trim());
+
+    if (firstEmpty) {
+      const el = document.getElementById(firstEmpty.id);
+      el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el?.focus();
+      return;
+    }
+
+    if (!this.isValidEmail(this.from)) {
+      const el = document.getElementById('email');
+      el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el?.focus();
+      return;
+    }
+
+    this.sending = true;
+
+    this.emailService.sendEmail({
+      name: this.name.trim(),
+      email: this.from.trim(),
+      subject: this.subject.trim(),
+      message: this.text.trim(),
+    }).subscribe(
       response => {
+        this.sending = false;
+        this.submitted = false;
         Swal.fire({
-          title: '¡Éxito!',
-          text: 'El correo fue enviado correctamente.',
+          ...SWAL_THEME,
+          title: '¡Mensaje enviado!',
+          text: 'Gracias por escribirme, te responderé a la brevedad.',
           icon: 'success',
-          confirmButtonText: 'Aceptar'
+          confirmButtonText: 'Cerrar',
+          iconColor: '#dba423',
         });
+        this.name = '';
+        this.from = '';
+        this.subject = '';
+        this.text = '';
       },
       error => {
+        this.sending = false;
         Swal.fire({
-          title: 'Error',
-          text: 'Hubo un problema al enviar el correo.',
+          ...SWAL_THEME,
+          title: 'Error al enviar',
+          text: 'Hubo un problema al enviar el mensaje. Intentá de nuevo.',
           icon: 'error',
-          confirmButtonText: 'Intentar de nuevo'
+          confirmButtonText: 'Intentar de nuevo',
         });
       }
     );

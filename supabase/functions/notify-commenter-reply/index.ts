@@ -1,4 +1,5 @@
 ﻿import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { escapeHtml } from '../_shared/utils.ts'
 
 const RESEND_API_URL = 'https://api.resend.com/emails'
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY') ?? ''
@@ -33,13 +34,13 @@ Deno.serve(async (req) => {
         body: JSON.stringify({
             from: 'Blog Neri <onboarding@resend.dev>',
             to: [parent.author_email],
-            subject: `${record.author_name} respondio tu comentario`,
+            subject: `${escapeHtml(record.author_name)} respondió tu comentario`,
             html: `
-                <h2>${record.author_name} respondi&oacute; tu comentario</h2>
-                <p><strong>Post:</strong> ${record.post_slug}</p>
+                <h2>${escapeHtml(record.author_name)} respondi&oacute; tu comentario</h2>
+                <p><strong>Post:</strong> ${escapeHtml(record.post_slug)}</p>
                 <p><strong>Su respuesta:</strong></p>
                 <blockquote style="border-left:3px solid #c8a951;padding:8px 16px;margin:16px 0;">
-                    ${record.content}
+                    ${escapeHtml(record.content)}
                 </blockquote>
                 <p><a href="https://soynerin.netlify.app/#blog">Ver en el blog</a></p>
             `,

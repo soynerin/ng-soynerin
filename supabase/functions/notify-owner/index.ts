@@ -1,4 +1,6 @@
-﻿const RESEND_API_URL = 'https://api.resend.com/emails'
+﻿import { escapeHtml } from '../_shared/utils.ts'
+
+const RESEND_API_URL = 'https://api.resend.com/emails'
 const OWNER_EMAIL = Deno.env.get('OWNER_EMAIL') ?? ''
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY') ?? ''
 
@@ -11,7 +13,20 @@ Deno.serve(async (req) => {
     if (!record) return new Response('No record', { status: 400 })
 
     const isReply = !!record.parent_id
-    const subject = isReply ? `Nueva respuesta en "${record.post_slug}"` : `Nuevo comentario en "${record.post_slug}"`
+    const subject = isReply
+        ? `Nueva respuesta en "${escapeHtml(record.post_slug)}"`
+        : `Nuevo comentario en "${escapeHtml(record.post_slug)}"`
+
+    const html = `
+        <h2>${isReply ? 'Nueva respuesta' : 'Nuevo comentario'} en tu blog</h2>
+        <p><strong>Post:</strong> ${escapeHtml(record.post_slug)}</p>
+        <p><strong>Autor:</strong> ${escapeHtml(record.author_name)}</p>
+        ${record.author_email ? `<p><strong>Email:</strong> ${escapeHtml(record.author_email)}</p>` : ''}
+        <p><strong>Mensaje:</strong></p>
+        <blockquote style="border-left:3px solid #c8a951;padding:8px 16px;margin:16px 0;">
+            ${escapeHtml(record.content)}
+        </blockquote>
+    `
 
     const emailRes = await fetch(RESEND_API_URL, {
         method: 'POST',
@@ -20,7 +35,7 @@ Deno.serve(async (req) => {
             from: 'Blog Neri <onboarding@resend.dev>',
             to: [OWNER_EMAIL],
             subject,
-            html: `<h2>${isReply ? 'Nueva respuesta' : 'Nuevo comentario'}</h2><p><strong>Post:</strong> ${record.post_slug}</p><p><strong>Autor:</strong> ${record.author_name}</p><p>${record.author_email ?? ''}</p><blockquote>${record.content}</blockquote>`,
+            html,
         }),
     })
     if (!emailRes.ok) return new Response(await emailRes.text(), { status: 500 })
